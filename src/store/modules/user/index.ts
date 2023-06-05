@@ -28,7 +28,7 @@ const useUserStore = defineStore('user', {
     registrationDate: undefined,
     accountId: undefined,
     certification: undefined,
-    role: '',
+    roles: '',
   }),
 
   getters: {
@@ -40,8 +40,8 @@ const useUserStore = defineStore('user', {
   actions: {
     switchRoles() {
       return new Promise((resolve) => {
-        this.role = this.role === 'user' ? 'root' : 'user';
-        resolve(this.role);
+        this.roles = this.roles === 'user' ? 'root' : 'user';
+        resolve(this.roles);
       });
     },
     // Set user's information
@@ -57,7 +57,27 @@ const useUserStore = defineStore('user', {
     // Get user's information
     async info() {
       const res = await getUserInfo();
-
+      const DASHBOARD: any = {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: "",
+        title:"首页",
+        children: [
+          {
+            path: 'workplace',
+            name: 'Workplace',
+            component: () =>
+              import('@/views/dashboard/workplace/index.vue'),
+            meta: {
+              title: '数据',
+              requiresAuth: true,
+              roles: ['*'],
+            },
+          },
+        ],
+      };
+      res.data.permissions.unshift(DASHBOARD)
+      localStorage.setItem('permissions',JSON.stringify(res.data.permissions))
       this.setInfo(res.data);
     },
     // Login

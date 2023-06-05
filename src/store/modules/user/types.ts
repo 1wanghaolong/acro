@@ -1,4 +1,4 @@
-export type RoleType = '' | '*' | 'root' | 'user';
+export type RoleType = '' | '*' | 'root' | 'user' | '1';
 export interface UserState {
   name?: string;
   avatar?: string;
@@ -15,7 +15,9 @@ export interface UserState {
   registrationDate?: string;
   accountId?: string;
   certification?: number;
-  role: RoleType;
+  roles?:RoleType;
+  permissions?:any;
+  permissions_menu_button?:any;
 }
 
 

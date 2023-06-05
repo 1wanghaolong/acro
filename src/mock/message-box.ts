@@ -66,7 +66,7 @@ const getMessageList = () => {
     },
   ].map((item) => ({
     ...item,
-    status: haveReadIds.indexOf(item.id) === -1 ? 0 : 1,
+    status: haveReadIds.indexOf(item.id) === -1 ? 0 : 10000,
   }));
 };
 
