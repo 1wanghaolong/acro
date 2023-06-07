@@ -5,15 +5,15 @@ const DASHBOARD: AppRouteRecordRaw = {
   path: '/dashboard',
   name: 'dashboard',
   component: DEFAULT_LAYOUT,
-  // meta: {
-  //   title: '仪表盘',
-  //   locale: 'menu.dashboard',
-  //   requiresAuth: true,
-  //   order: 0,
-  // },
+  meta: {
+    title: '首页',
+    locale: 'menu.dashboard',
+    requiresAuth: true,
+    order: 0,
+  },
   children: [
     {
-      path: 'workplace',
+      path: 'Workplace',
       name: 'Workplace',
       component: () => import('@/views/dashboard/workplace/index.vue'),
       meta: {

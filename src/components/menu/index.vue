@@ -94,33 +94,27 @@
       const renderSubMenu = () => {
         function travel(_route: RouteRecordRaw[], nodes = []) {
           if (_route) {
-            console.log('_route', _route);
-            _route.forEach((element) => {
-              console.log('element',element);
-              
-              const icon = element?.meta?.icon
-                ? () => h(compile(`<${element?.meta?.icon}/>`))
-                : null;
+            _route.forEach((element: any) => {
+              // const icon = element?.meta?.icon
+              //   ? () => h(compile(`<${element?.meta?.icon}/>`))
+              //   : null;
               const node =
-                element?.children && element?.children.length !== 0 ? (
+                element?.children &&
+                element?.children.length !== 0 && element?.children.length > 1
+                ? (
                   <a-sub-menu
                     key={element?.name}
-                    v-slots={{
-                      icon,
-                      title: element?.meta?.title
-                    }}
+                    v-slots={{title:element?.meta?.title}}
                   >
                     {travel(element?.children)}
                   </a-sub-menu>
                 ) : (
+                  // v-slots={{ icon }}
                   <a-menu-item
-                    key={element?.name}
-                    v-slots={{ icon }}
-                    onClick={() => goto(element)}
+                    key={element?.children[0]?.name || element?.name}
+                    onClick={() => goto(element?.children[0]|| element)}
                   >
-                  {
-                      element?.meta?.title
-                  }
+                    { element?.children[0]?.meta?.title || element?.meta?.title }
                   </a-menu-item>
                 );
               nodes.push(node as never);

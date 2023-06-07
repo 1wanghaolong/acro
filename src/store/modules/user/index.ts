@@ -9,7 +9,8 @@ import { setToken, clearToken } from '@/utils/auth';
 import { removeRouteListener } from '@/utils/route-listener';
 import { UserState } from './types';
 import useAppStore from '../app';
-import { encrypt } from "@/utils/rsaEncrypt";
+import { encrypt } from '@/utils/rsaEncrypt';
+import { DEFAULT_LAYOUT } from '@/router/routes/base';
 
 const useUserStore = defineStore('user', {
   state: (): UserState => ({
@@ -57,39 +58,46 @@ const useUserStore = defineStore('user', {
     // Get user's information
     async info() {
       const res = await getUserInfo();
-      const DASHBOARD: any = {
+      const DASHBOARD = {
         path: '/dashboard',
         name: 'dashboard',
-        component: "",
-        title:"首页",
+        component: DEFAULT_LAYOUT,
+        // meta: {
+        //   title: '',
+        //   locale: 'menu.dashboard',
+        //   requiresAuth: true,
+        //   order: 0,
+        // },
         children: [
           {
-            path: 'workplace',
+            path: 'Workplace',
             name: 'Workplace',
-            component: () =>
-              import('@/views/dashboard/workplace/index.vue'),
+            component: () => import('@/views/dashboard/workplace/index.vue'),
             meta: {
-              title: '数据',
+              title: '首页',
               requiresAuth: true,
               roles: ['*'],
             },
           },
         ],
-      };
-      res.data.permissions.unshift(DASHBOARD)
-      localStorage.setItem('permissions',JSON.stringify(res.data.permissions))
+      };      
+      res.data.permissions.unshift(DASHBOARD);
+      res.data.permissions[1].name = 'vip'
+      res.data.permissions[1].path = '/vip'
+      res.data.permissions[1].children[0].name = 'viplist'
+      localStorage.setItem('permissions', JSON.stringify(res.data.permissions));
       this.setInfo(res.data);
     },
     // Login
     async login(loginForm: LoginData) {
-      let encryPassword = encrypt(loginForm.password)
-      let password = loginForm.password
+      let encryPassword = encrypt(loginForm.password);
+      let password = loginForm.password;
       try {
-        loginForm.password = encryPassword
+        loginForm.password = encryPassword;
         const res = await userLogin(loginForm);
         setToken(res.data.token);
       } catch (err) {
-        loginForm.password = password
+        loginForm.password = password;
         clearToken();
         throw err;
       }
