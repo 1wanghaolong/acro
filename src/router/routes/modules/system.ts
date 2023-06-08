@@ -25,24 +25,24 @@ const SYSTEM: AppRouteRecordRaw = {
       },
     },
     {
-      name: 'Role',
-      path: 'role',
-      component: () => import('@/views/system/role/index.vue'),
+      name: 'Menu',
+      path: 'menu',
+      component: () => import('@/views/system/meun/index.vue'),
       meta: {
         title: '菜单管理',
-        locale:"menu.system.Role",
+        locale:"menu.system.Menu",
         requiresAuth: true,
         roles: ['*']
       }
     },
     {
-      name: 'Menu',
-      path: 'menu',
-      component: () => import('@/views/system/meun/index.vue'),
+      name: 'Role',
+      path: 'role',
+      component: () => import('@/views/system/role/index.vue'),
       meta: {
         title: '角色管理',
         icon: 'tree-table',
-        locale:"menu.system.Menu",
+        locale:"menu.system.Role",
         requiresAuth: true,
         roles: ['*']
       },
