@@ -3,6 +3,8 @@ export interface UserState {
   name?: string;
   avatar?: string;
   job?: string;
+  username?:string,
+  mobile?:string,
   organization?: string;
   location?: string;
   email?: string;
@@ -23,6 +25,9 @@ export interface UserState {
 
 
 export interface requestData {
+  logo_login?:string,
+  open_account_icon?:string,
+  terminal_name?:string,
   key?:string,
   base64?:string,
   captchaEnabled?:Boolean,

@@ -4,6 +4,9 @@ import localeLogin from '@/views/login/locale/en-US';
 import localeWorkplace from '@/views/dashboard/workplace/locale/en-US';
 
 import systemUser from '@/views/system/user/locale/en-US'
+
+import localeUserInfo from '@/views/user/info/locale/en-US';
+
 import localeSettings from './en-US/settings';
 
 export default {
@@ -49,5 +52,5 @@ export default {
   ...localeLogin,
   ...localeWorkplace,
   ...systemUser,
-
+  ...localeUserInfo,
 };

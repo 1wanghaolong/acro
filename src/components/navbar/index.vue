@@ -24,13 +24,13 @@
     </div>
     <ul class="right-side">
       <li>
-        <a-tooltip :content="$t('settings.search')">
+        <!-- <a-tooltip :content="$t('settings.search')">
           <a-button class="nav-btn" type="outline" :shape="'circle'">
             <template #icon>
               <icon-search />
             </template>
           </a-button>
-        </a-tooltip>
+        </a-tooltip> -->
       </li>
       <li>
         <a-tooltip :content="$t('settings.language')">
@@ -83,7 +83,7 @@
         </a-tooltip>
       </li>
       <li>
-        <a-tooltip :content="$t('settings.navbar.alerts')">
+        <!-- <a-tooltip :content="$t('settings.navbar.alerts')">
           <div class="message-box-trigger">
             <a-badge :count="9" dot>
               <a-button
@@ -96,7 +96,7 @@
               </a-button>
             </a-badge>
           </div>
-        </a-tooltip>
+        </a-tooltip> -->
         <a-popover
           trigger="click"
           :arrow-style="{ display: 'none' }"
@@ -153,14 +153,14 @@
             <img alt="avatar" :src="avatar" />
           </a-avatar>
           <template #content>
-            <a-doption>
+            <!-- <a-doption>
               <a-space @click="switchRoles">
                 <icon-tag />
                 <span>
                   {{ $t('messageBox.switchRoles') }}
                 </span>
               </a-space>
-            </a-doption>
+            </a-doption> -->
             <a-doption>
               <a-space @click="$router.push({ name: 'Info' })">
                 <icon-user />

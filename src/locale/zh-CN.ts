@@ -5,6 +5,8 @@ import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
 
 import systemUser from '@/views/system/user/locale/zh-CN'
 
+import localeUserInfo from '@/views/user/info/locale/zh-CN';
+
 import localeSettings from './zh-CN/settings';
 
 export default {
@@ -50,4 +52,5 @@ export default {
   ...localeLogin,
   ...localeWorkplace,
   ...systemUser,
+  ...localeUserInfo,
 };

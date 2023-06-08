@@ -18,8 +18,15 @@
     </div>
     <div class="content">
       <div class="login_left">
+        <div class="logo">
+          <img :src="logoin.logo_login" alt="" class="logo">
+        </div>
         <!-- <img draggable="false" v-show="true" :src="$store.state.user.nameLogo.loginLogo" alt="" class="logo" /> -->
-        <h1 style="text-align: center">{{ '通源数据监控平台' }}</h1>
+        <!-- <h1 style="text-align: center">{{ 'LINKESOP开户后台' }}</h1> -->
+        <logincarousel></logincarousel>
+        <div>
+          <p class="fonts">©{{ logoin.terminal_name }}</p>
+        </div>
       </div>
       <loginForm></loginForm>
       <!-- <h3 class="title" style="text-align: center;">{{ "欢迎登录" }}</h3> -->
@@ -35,14 +42,21 @@
 <script lang="ts" setup>
   import { ref,reactive } from 'vue';
   import loginForm from "./components/login-form.vue";
-
-  const form = reactive({
-    name: '',
-    post: '',
-    isRead: true,
+  import logincarousel from "./components/login-carousel.vue";
+  import { logologin } from '@/api/user';
+  let logoin:any = reactive({
+    logo_login: '',
+    open_account_icon: '',
+    terminal_name: "",
   });
   const layout:any = ref('vertical')
   const handleSubmit = () => {};
+  const logo = async () =>{
+    const { data } = await logologin()
+    logoin.logo_login = data?.logo_login
+    logoin.terminal_name = data.terminal_name 
+  }
+  logo()
 </script>
 
 <style lang="less" scoped>
@@ -67,7 +81,7 @@
     cursor: pointer;
     user-select: none;
     .blueText {
-      color: #448ef6;
+      color: var(--link-6)
     }
     span {
       margin: 0 3px;
@@ -77,7 +91,7 @@
 
   .login-form {
     border-radius: 6px;
-    background: #ffffff;
+    background: var(--color-bg-5);
     width: 400px;
     padding: 25px 25px 5px 25px;
     .el-input {
@@ -94,7 +108,7 @@
   }
 
   .content {
-    background: #ffffff;
+    background: var(--color-bg-5);
     width: 800px;
     height: 500px;
     overflow: hidden;
@@ -123,7 +137,7 @@
         width: auto;
         margin: 0 auto 30px auto;
         text-align: center;
-        color: #707070;
+        color: var(--color-text-2);
         font-weight: 500;
         letter-spacing: 3px;
         font-size: 22px;
@@ -145,7 +159,7 @@
         left: 5px;
         top: 0;
         text-align: center;
-        color: #c0c4cc;
+        color: var(--color-text-3);
         transition: all 0.3s;
         img {
           width: 20px;
@@ -194,14 +208,25 @@
       background-size: cover !important;
       background-image: url('@/assets/images/login8.png');
       background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      //   // position: relative;
+      position: relative;
       //   /deep/.el-carousel__container{
       //   padding-bottom: 30px;
       h1 {
+        color: var(--color-text-1);
+      }
+      .logo{
+        padding-top: 30px;
+        width: 146px;
+        margin-left: 16px;
+      }
+      .fonts{
+        font-size: 12px;
+        width: 50%;
         color: #fff;
+        line-height: 20px;
+        position: absolute;
+        bottom: 38px;
+        left: 30px;
       }
       // }
     }

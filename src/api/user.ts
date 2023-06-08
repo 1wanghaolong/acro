@@ -30,3 +30,9 @@ export function getMenuList() {
 export function getCodeImg() {
   return axios.get<requestData>('/captcha');
 }
+
+
+// 获取logo
+export function logologin() {
+  return axios.get<requestData>('/logo/login');
+}
