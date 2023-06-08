@@ -6,7 +6,7 @@ const KAIHU: AppRouteRecordRaw = {
   name: 'kaihu',
   component: DEFAULT_LAYOUT,
   meta: {
-    title: '开户流程',
+    locale:'menu.accountOpen',
     icon: 'icon-user',
     requiresAuth: true,
     order: 4,
@@ -17,7 +17,7 @@ const KAIHU: AppRouteRecordRaw = {
       name: 'Hopen',
       component: () => import('@/views/Hopen/index.vue'),
       meta: {
-        title: '证券流程',
+        locale:'menu.SecuritiesProcess',
         requiresAuth: true,
         roles: ['*'],
       },

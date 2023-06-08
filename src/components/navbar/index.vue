@@ -4,13 +4,13 @@
       <a-space>
         <img
           alt="logo"
-          src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/dfdba5317c0c20ce20e64fac803d52bc.svg~tplv-49unhts6dw-image.image"
+          :src="logoimage"
         />
         <a-typography-title
           :style="{ margin: 0, fontSize: '18px' }"
           :heading="5"
         >
-          Arco Pro
+          <!-- {{ userStore }} -->
         </a-typography-title>
         <icon-menu-fold
           v-if="!topMenu && appStore.device === 'mobile'"
@@ -211,6 +211,9 @@
   const locales = [...LOCALE_OPTIONS];
   const avatar = computed(() => {
     return userStore.avatar;
+  });
+  const logoimage = computed(() => {
+    return userStore.logo_big;
   });
   const theme = computed(() => {
     return appStore.theme;

@@ -18,6 +18,7 @@ export interface UserState {
   roles?:RoleType;
   permissions?:any;
   permissions_menu_button?:any;
+  logo_big?:any
 }
 
 

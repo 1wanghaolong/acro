@@ -6,7 +6,7 @@ const VIP: AppRouteRecordRaw = {
   name: 'vip',
   component: DEFAULT_LAYOUT,
   meta: {
-    title: '会员管理',
+    locale:"menu.Management",
     icon: 'icon-user',
     requiresAuth: true,
     order: 1,
@@ -17,7 +17,7 @@ const VIP: AppRouteRecordRaw = {
       name: 'vipList',
       component: () => import('@/views/vip/index.vue'),
       meta: {
-        title: '会员管理',
+        locale:"menu.Management",
         requiresAuth: true,
         roles: ['*'],
       },

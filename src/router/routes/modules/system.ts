@@ -7,6 +7,7 @@ const SYSTEM: AppRouteRecordRaw = {
   component: DEFAULT_LAYOUT,
   meta: {
     title: '权限管理',
+    locale:"menu.system",
     icon: 'icon-user',
     requiresAuth: true,
     order: 6,
@@ -18,6 +19,7 @@ const SYSTEM: AppRouteRecordRaw = {
       component: () => import('@/views/system/user/index.vue'),
       meta: {
         title: '组织架构',
+        locale:"menu.system.user",
         requiresAuth: true,
         roles: ['*'],
       },
@@ -28,6 +30,7 @@ const SYSTEM: AppRouteRecordRaw = {
       component: () => import('@/views/system/role/index.vue'),
       meta: {
         title: '菜单管理',
+        locale:"menu.system.Role",
         requiresAuth: true,
         roles: ['*']
       }
@@ -39,6 +42,7 @@ const SYSTEM: AppRouteRecordRaw = {
       meta: {
         title: '角色管理',
         icon: 'tree-table',
+        locale:"menu.system.Menu",
         requiresAuth: true,
         roles: ['*']
       },
@@ -50,6 +54,7 @@ const SYSTEM: AppRouteRecordRaw = {
       meta: {
         title: '账户管理',
         icon: 'tree',
+        locale:"menu.system.Dept",
         requiresAuth: true,
         roles: ['*']
       },
@@ -60,6 +65,7 @@ const SYSTEM: AppRouteRecordRaw = {
       component: () => import('@/views/system/post/index.vue'),
       meta: {
         title: '操作日志',
+        locale:"menu.system.Post",
         icon: 'post',
         requiresAuth: true,
         roles: ['*']

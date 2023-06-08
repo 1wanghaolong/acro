@@ -104,7 +104,7 @@
                 ? (
                   <a-sub-menu
                     key={element?.name}
-                    v-slots={{title:element?.meta?.title}}
+                    v-slots:title={{title:(t(`${element?.meta?.locale}`))}}
                   >
                     {travel(element?.children)}
                   </a-sub-menu>
@@ -114,7 +114,7 @@
                     key={element?.children[0]?.name || element?.name}
                     onClick={() => goto(element?.children[0]|| element)}
                   >
-                    { element?.children[0]?.meta?.title || element?.meta?.title }
+                    { (t(`${element?.meta?.locale}`) || "") }
                   </a-menu-item>
                 );
               nodes.push(node as never);
