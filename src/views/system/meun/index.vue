@@ -82,6 +82,7 @@
   import { IconSearch } from '@arco-design/web-vue/es/icon';
   import useLoading from '@/hooks/loading';
   import { useI18n } from 'vue-i18n';
+  import { getDate } from '@/utils/fifter'
   const { loading, setLoading } = useLoading(true);
   const scrollbar = ref(true);
   const { t } = useI18n();
@@ -147,6 +148,11 @@
     setLoading(true);
     try {
       const { data } = await permissionsMessageList();
+      data.forEach((item:any) =>{
+        if (typeof item.created_at ===  'number') {
+          item.created_at = getDate(item.created_at,'year')
+        }
+      })
       listDate.value = data;
     } catch (err) {
       // you can report use errorHandler or other
