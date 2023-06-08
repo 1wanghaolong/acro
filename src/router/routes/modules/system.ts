@@ -1,15 +1,15 @@
 import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
-const USER: AppRouteRecordRaw = {
+const SYSTEM: AppRouteRecordRaw = {
   path: '/system',
   name: 'system',
   component: DEFAULT_LAYOUT,
   meta: {
-    title: '系统管理',
+    title: '权限管理',
     icon: 'icon-user',
     requiresAuth: true,
-    order: 1,
+    order: 6,
   },
   children: [
     {
@@ -17,7 +17,7 @@ const USER: AppRouteRecordRaw = {
       name: 'User',
       component: () => import('@/views/system/user/index.vue'),
       meta: {
-        title: '用户管理',
+        title: '组织架构',
         requiresAuth: true,
         roles: ['*'],
       },
@@ -27,7 +27,7 @@ const USER: AppRouteRecordRaw = {
       path: 'role',
       component: () => import('@/views/system/role/index.vue'),
       meta: {
-        title: '角色管理',
+        title: '菜单管理',
         requiresAuth: true,
         roles: ['*']
       }
@@ -37,7 +37,7 @@ const USER: AppRouteRecordRaw = {
       path: 'menu',
       component: () => import('@/views/system/meun/index.vue'),
       meta: {
-        title: '菜单管理',
+        title: '角色管理',
         icon: 'tree-table',
         requiresAuth: true,
         roles: ['*']
@@ -48,7 +48,7 @@ const USER: AppRouteRecordRaw = {
       path: 'dept',
       component: () => import('@/views/system/dept/index.vue'),
       meta: {
-        title: '部门管理',
+        title: '账户管理',
         icon: 'tree',
         requiresAuth: true,
         roles: ['*']
@@ -59,7 +59,7 @@ const USER: AppRouteRecordRaw = {
       path: 'post',
       component: () => import('@/views/system/post/index.vue'),
       meta: {
-        title: '岗位管理',
+        title: '操作日志',
         icon: 'post',
         requiresAuth: true,
         roles: ['*']
@@ -68,4 +68,4 @@ const USER: AppRouteRecordRaw = {
   ],
 };
 
-export default USER;
+export default SYSTEM;
