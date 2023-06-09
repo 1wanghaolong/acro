@@ -11,7 +11,12 @@
     >
       <a-card :style="{ width: '100%' }" :bordered="false">
         <a-space direction="vertical" size="large" fill>
-          <a-table :data="listDate" row-key="id" style="margin-top: 30px">
+          <a-table
+            :data="listDate"
+            :pagination="false"
+            row-key="id"
+            style="margin-top: 30px"
+          >
             <template #columns>
               <a-table-column title="菜单标题">
                 <template #cell="{ record }">
@@ -23,64 +28,50 @@
                   <!-- <svg-icon :icon-class="record.icon" style="height: 40px;width: 20px;" /> -->
                 </template>
               </a-table-column>
-              <a-table-column
-                title="权限标识"
-                data-index="permission_mark"
-              >
+              <a-table-column title="权限标识" data-index="permission_mark">
                 <template #cell="{ record }">
                   {{ record.permission_mark }}
                 </template>
               </a-table-column>
-              <a-table-column
-                title="组件路径"
-                data-index="address"
-              >
+              <a-table-column title="组件路径" data-index="component">
                 <template #cell="{ record }">
-                  {{ record.permission_mark }}
+                  {{ record.component }}
                 </template>
               </a-table-column>
-              <a-table-column title="Email" data-index="email"></a-table-column>
-              <a-table-column title="Optional">
+              <a-table-column title="创建时间" data-index="created_at">
                 <template #cell="{ record }">
-                  <a-button
-                    @click="
-                      $modal.info({ title: 'Name', content: record.name })
-                    "
-                    >view</a-button
-                  >
+                  {{ record.created_at }}
+                </template>
+              </a-table-column>
+              <a-table-column title="操作">
+                <template #cell="{ record }">
+                  <a-space>
+                    <a-button type="primary" @click="handleClick">
+                      <template #icon>
+                        <icon-plus />
+                      </template>
+                    </a-button>
+                    <a-button type="primary" status="danger">
+                      <template #icon>
+                        <icon-delete />
+                      </template>
+                    </a-button>
+                  </a-space>
                 </template>
               </a-table-column>
             </template>
           </a-table>
-          <!-- <a-table
-            :expand="expand"
-            row-key="id"
-            :columns="columns"
-            :data="listDate"
-            :pagination="pagination"
-            :scroll="scroll"
-            :scrollbar="scrollbar"
-          >
-             <template #expand>
-                <icon-right />
-             </template>
-            <template #optional="{ record }">
-              <a-space>
-                <a-button type="primary" @click="handleClick">
-                  <template #icon>
-                    <div>
-                      <icon-plus />
-                    </div>
-                  </template>
-                </a-button>
-                <a-button type="primary" status="danger">
-                  <template #icon>
-                    <icon-delete />
-                  </template>
-                </a-button>
-              </a-space>
-            </template>
-          </a-table> -->
+          <a-space direction="vertical" size="large">
+            <a-pagination
+              class="paginationEnd"
+              :total="total"
+              show-total
+              show-jumper
+              show-page-size
+              @change="change($event)"
+              @page-size-change="pageSizeChange($event)"
+            />
+          </a-space>
         </a-space>
       </a-card>
 
@@ -118,9 +109,9 @@
   import { useI18n } from 'vue-i18n';
   import { getDate } from '@/utils/fifter';
   const { loading, setLoading } = useLoading(true);
-  const scrollbar = ref(true);
   const { t } = useI18n();
   const visible = ref(false);
+  const total = ref(0);
   const formRef = ref();
   const form = reactive({
     name: '',
@@ -144,52 +135,31 @@
   const handleCancel = () => {
     visible.value = false;
   };
-  const scroll = {
-    x: 200,
-    y: '100%',
-  };
-  const expand = ref({
-    rowKey: 1,
+  const secahfrom = reactive({
+    module: '',
+    page: 1,
+    limit: 10,
   });
-  const pagination = { pageSize: 20 };
-  const columns = ref([
-    {
-      title: '菜单标题',
-      dataIndex: 'permission_name',
-    },
-    {
-      title: '图标',
-      dataIndex: 'icon',
-    },
-    {
-      title: '权限标识',
-      dataIndex: 'permission_mark',
-    },
-    {
-      title: '组件路径',
-      dataIndex: 'component',
-    },
-    {
-      title: '创建时间',
-      dataIndex: 'created_at',
-    },
-    {
-      title: t('system.user.Optional'),
-      slotName: 'optional',
-    },
-  ]);
-  const addzj = () => {};
+  const change = (value: any) => {
+    secahfrom.page = value;
+    fetchSourceData();
+  };
+  const pageSizeChange = (value: any) => {
+    secahfrom.limit = value;
+    fetchSourceData();
+  };
   let listDate: any = ref([]);
   const fetchSourceData = async () => {
     setLoading(true);
     try {
-      const { data } = await permissionsMessageList();
-      data.forEach((item: any) => {
+      const res: any = await permissionsMessageList(secahfrom);
+      res.data.forEach((item: any) => {
         if (typeof item.created_at === 'number') {
           item.created_at = getDate(item.created_at, 'year');
         }
       });
-      listDate.value = data;
+      listDate.value = res.data;
+      total.value = res.data.length;
     } catch (err) {
       // you can report use errorHandler or other
     } finally {

@@ -32,6 +32,7 @@ const useUserStore = defineStore('user', {
     registrationDate: undefined,
     accountId: undefined,
     certification: undefined,
+    terminal_name:"",
     roles: '',
   }),
 

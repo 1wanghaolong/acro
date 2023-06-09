@@ -16,7 +16,7 @@
             row-key="id"
             :columns="columns"
             :data="listDate"
-            :pagination="pagination"
+            :pagination="false"
             :scroll="scroll"
             :scrollbar="scrollbar"
           >
@@ -37,6 +37,17 @@
               </a-space>
             </template>
           </a-table>
+          <a-space direction="vertical" size="large">
+            <a-pagination
+              class="paginationEnd"
+              :total="total"
+              show-total
+              show-jumper
+              show-page-size
+              @change="change($event)"
+              @page-size-change="pageSizeChange($event)"
+            />
+          </a-space>
         </a-space>
       </a-card>
 
@@ -83,6 +94,7 @@
   const { t } = useI18n();
   const visible = ref(false);
   const formRef = ref();
+  const total = ref(0);
   const form = reactive({
     name: '',
     post: '',
@@ -103,6 +115,19 @@
   const handleCancel = () => {
     visible.value = false;
   };
+  const secahfrom = reactive({
+    module: '',
+    page: 1,
+    limit: 10,
+  });
+  const change = (value: any) => {
+    secahfrom.page = value;
+    fetchSourceData();
+  };
+  const pageSizeChange = (value: any) => {
+    secahfrom.limit = value;
+    fetchSourceData();
+  };
   const scroll = {
     x: 200,
     y: '100%',
@@ -110,7 +135,6 @@
   const expand = ref({
     rowKey: 1,
   });
-  const pagination = { pageSize: 20 };
   const columns = ref([
     {
       title: 'id',
@@ -129,13 +153,13 @@
       slotName: 'optional',
     },
   ]);
-  const addzj = () => {};
   let listDate: any = ref([]);
   const fetchSourceData = async () => {
     setLoading(true);
     try {
-      const { data } = await queryMessageList();
-      listDate.value = data;
+      const res:any = await queryMessageList(secahfrom);
+      listDate.value = res.data;
+      total.value = res.data.length;
     } catch (err) {
       // you can report use errorHandler or other
     } finally {

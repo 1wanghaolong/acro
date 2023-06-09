@@ -21,6 +21,7 @@ export interface UserState {
   permissions?:any;
   permissions_menu_button?:any;
   logo_big?:any
+  terminal_name?:any
 }
 
 

@@ -1,8 +1,11 @@
 <template>
-  <a-layout-footer class="footer">Arco Pro</a-layout-footer>
+  <a-layout-footer class="footer">{{ userStore.terminal_name }}</a-layout-footer>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useUserStore } from '@/store';
+const userStore = useUserStore();
+</script>
 
 <style lang="less" scoped>
   .footer {
