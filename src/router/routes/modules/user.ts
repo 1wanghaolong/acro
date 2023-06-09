@@ -9,6 +9,7 @@ const USER: AppRouteRecordRaw = {
     locale: 'menu.user',
     icon: 'icon-user',
     requiresAuth: true,
+    hideInMenu:true,
     order: 7,
   },
   children: [
@@ -17,6 +18,7 @@ const USER: AppRouteRecordRaw = {
       name: 'Info',
       component: () => import('@/views/user/info/index.vue'),
       meta: {
+        hideInMenu:true,
         locale: 'menu.user.info',
         requiresAuth: true,
         roles: ['*'],

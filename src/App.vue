@@ -25,16 +25,3 @@
   });
 </script>
 
-<style>
-  .arco-space-item {
-    width: 100%;
-  }
-  .arco-space-item .arco-space-vertical {
-    width: 100%;
-  }
-  .paginationEnd {
-    width: 100%;
-    display: flex;
-    justify-content: end;
-  }
-</style>

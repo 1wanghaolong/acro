@@ -184,4 +184,12 @@
     padding-bottom: 0;
     display: flex;
   }
+  :deep(.arco-space-item .arco-space-vertical){
+    width: 100%;
+  }
+  :deep(.arco-space-item .arco-space-vertical .arco-space-item){
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
 </style>

@@ -104,7 +104,7 @@
                 ? (
                   <a-sub-menu
                     key={element?.name}
-                    slots:title={{title:(t(`${element?.meta?.locale}`))}}
+                    title={t(element?.meta?.locale)}
                   >
                     {travel(element?.children)}
                   </a-sub-menu>
