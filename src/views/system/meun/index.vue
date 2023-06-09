@@ -11,7 +11,48 @@
     >
       <a-card :style="{ width: '100%' }" :bordered="false">
         <a-space direction="vertical" size="large" fill>
-          <a-table
+          <a-table :data="listDate" row-key="id" style="margin-top: 30px">
+            <template #columns>
+              <a-table-column title="菜单标题">
+                <template #cell="{ record }">
+                  {{ record.permission_name }}
+                </template>
+              </a-table-column>
+              <a-table-column title="图标">
+                <template #cell="{ record }">
+                  <!-- <svg-icon :icon-class="record.icon" style="height: 40px;width: 20px;" /> -->
+                </template>
+              </a-table-column>
+              <a-table-column
+                title="权限标识"
+                data-index="permission_mark"
+              >
+                <template #cell="{ record }">
+                  {{ record.permission_mark }}
+                </template>
+              </a-table-column>
+              <a-table-column
+                title="组件路径"
+                data-index="address"
+              >
+                <template #cell="{ record }">
+                  {{ record.permission_mark }}
+                </template>
+              </a-table-column>
+              <a-table-column title="Email" data-index="email"></a-table-column>
+              <a-table-column title="Optional">
+                <template #cell="{ record }">
+                  <a-button
+                    @click="
+                      $modal.info({ title: 'Name', content: record.name })
+                    "
+                    >view</a-button
+                  >
+                </template>
+              </a-table-column>
+            </template>
+          </a-table>
+          <!-- <a-table
             :expand="expand"
             row-key="id"
             :columns="columns"
@@ -39,7 +80,7 @@
                 </a-button>
               </a-space>
             </template>
-          </a-table>
+          </a-table> -->
         </a-space>
       </a-card>
 
@@ -55,19 +96,13 @@
         <div>
           <a-form ref="formRef" :model="form" :style="{ width: '100%' }">
             <a-form-item field="name" label="上级部门" :rules="rules">
-              <a-input
-                v-model="form.name"
-                placeholder="请选择上级部门"
-              />
+              <a-input v-model="form.name" placeholder="请选择上级部门" />
             </a-form-item>
             <a-form-item field="post" label="部门名称" :rules="rules2">
-              <a-input
-                v-model="form.post"
-                placeholder="部门名称"
-              />
+              <a-input v-model="form.post" placeholder="部门名称" />
             </a-form-item>
             <a-form-item field="post" label="部门描述">
-              <a-textarea placeholder="部门描述" allow-clear/>
+              <a-textarea placeholder="部门描述" allow-clear />
             </a-form-item>
           </a-form>
         </div>
@@ -77,12 +112,11 @@
 </template>
 
 <script lang="ts" setup>
-  import { reactive, ref,h } from 'vue';
+  import { reactive, ref, h } from 'vue';
   import { permissionsMessageList } from '@/api/system';
-  import { IconSearch } from '@arco-design/web-vue/es/icon';
   import useLoading from '@/hooks/loading';
   import { useI18n } from 'vue-i18n';
-  import { getDate } from '@/utils/fifter'
+  import { getDate } from '@/utils/fifter';
   const { loading, setLoading } = useLoading(true);
   const scrollbar = ref(true);
   const { t } = useI18n();
@@ -94,10 +128,12 @@
     isRead: false,
   });
   const rules = [
-    {required:true,message:'name is required'},{minLength:5,message:'must be greater than 5 characters'}
+    { required: true, message: 'name is required' },
+    { minLength: 5, message: 'must be greater than 5 characters' },
   ];
   const rules2 = [
-    {required:true,message:'name is required'},{minLength:5,message:'must be greater than 5 characters'}
+    { required: true, message: 'name is required' },
+    { minLength: 5, message: 'must be greater than 5 characters' },
   ];
   const handleClick = () => {
     visible.value = true;
@@ -148,11 +184,11 @@
     setLoading(true);
     try {
       const { data } = await permissionsMessageList();
-      data.forEach((item:any) =>{
-        if (typeof item.created_at ===  'number') {
-          item.created_at = getDate(item.created_at,'year')
+      data.forEach((item: any) => {
+        if (typeof item.created_at === 'number') {
+          item.created_at = getDate(item.created_at, 'year');
         }
-      })
+      });
       listDate.value = data;
     } catch (err) {
       // you can report use errorHandler or other
