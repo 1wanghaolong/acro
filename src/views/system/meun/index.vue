@@ -15,7 +15,11 @@
             :data="listDate"
             :pagination="false"
             row-key="id"
+            :expanded-keys="expandedkeys"
+            :scrollbar="scrollbar"
+            :defaultExpandAllRows="true"
             style="margin-top: 30px"
+            @cell-click="cellclick"
           >
             <template #columns>
               <a-table-column title="菜单标题">
@@ -111,6 +115,8 @@
   const { loading, setLoading } = useLoading(true);
   const { t } = useI18n();
   const visible = ref(false);
+  const expandedkeys: any = ref([]);
+  const scrollbar = ref(true);
   const total = ref(0);
   const formRef = ref();
   const form = reactive({
@@ -160,10 +166,39 @@
       });
       listDate.value = res.data;
       total.value = res.data.length;
+      // expandedkeysArray(res.data)
     } catch (err) {
       // you can report use errorHandler or other
     } finally {
       setLoading(false);
+    }
+  };
+  const cellclick = (record: any, column: any, ev: Event) => {
+    if (expandedkeys.value.length == 0) {
+      expandedkeys.value.push(record.id);
+      return
+    }
+    expandedkeys.value.forEach((item: any, index: string | number) => {
+      if (item && item == record.id) {
+        expandedkeys.value.splice(index, 1);
+      } else {
+        if (expandedkeys.value.indexOf(record.id) == -1) {
+          expandedkeys.value.push(record.id);
+        }
+      }
+    });    
+  };
+  const expandedkeysArray = (data: any) => {
+    for (let i = 0; i < data.length; i++) {
+      const node = data[i];
+
+      // 将当前节点的 id 放入数组中
+      expandedkeys.value.push(node.id);
+
+      // 如果当前节点有子节点，则递归遍历子节点
+      if (node.children && node.children.length > 0) {
+        expandedkeysArray(node.children);
+      }
     }
   };
   {

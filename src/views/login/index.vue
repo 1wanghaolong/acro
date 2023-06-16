@@ -59,6 +59,12 @@
   logo()
 </script>
 
+<script lang="ts">
+  export default {
+    name: 'login', // If you want the include property of keep-alive to take effect, you must name the component
+  };
+</script>
+
 <style lang="less" scoped>
   .login {
     display: flex;

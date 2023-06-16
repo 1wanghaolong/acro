@@ -33,18 +33,57 @@
           <icon-star-fill />
           <!-- <icon-thumb-down-fill /> -->
         </div>
-        <div class="icon" style="color:#317ef3;cursor: pointer;">
+        <div class="icon" @click="modifyPassword" style="color:#317ef3;cursor: pointer;">
           修改密码
         </div>
       </div>
     </a-space>
+
+    <a-modal
+        v-model:visible="visible"
+        @cancel="handleCancel"
+        @ok="handleOk"
+        unmountOnClose
+        :align-center="false"
+        title-align="start"
+      >
+        <template #title> 修改密码 </template>
+        <div>
+          <a-form ref="formRef" :model="form" :style="{ width: '100%' }">
+            <a-form-item field="password_old" label="旧密码">
+              <a-input v-model="form.password_old" placeholder="旧密码" />
+            </a-form-item>
+            <a-form-item field="password_new" label="新密码">
+              <a-input v-model="form.password_new" placeholder="新密码" />
+            </a-form-item>
+            <a-form-item field="password_confirm" label="确认密码">
+              <a-input v-model="form.password_confirm" placeholder="确认密码" />
+            </a-form-item>
+          </a-form>
+        </div>
+      </a-modal>
   </div>
 </template>
 
 <script lang="ts" setup>
   import { useUserStore } from '@/store';
-
+  import { reactive, ref, h } from 'vue';
   const userInfo = useUserStore();
+  const visible = ref(false);
+  const form = reactive({
+    password_old: '',
+    password_new: '',
+    password_confirm: "",
+  });
+  const modifyPassword = () =>{
+    visible.value = true;
+  }
+  const handleOk = () => {
+    visible.value = false;
+  };
+  const handleCancel = () => {
+    visible.value = false;
+  };
 </script>
 
 <style scoped lang="less">

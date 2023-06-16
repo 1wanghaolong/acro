@@ -162,7 +162,7 @@
       tabBarStore.addCache(itemData.name);
     } else {
       tabBarStore.resetTabList();
-      router.push({ name: DEFAULT_ROUTE_NAME });
+      router.push({ path: '/dashboard/Workplace' });
     }
   };
 </script>

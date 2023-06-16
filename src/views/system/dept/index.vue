@@ -11,7 +11,12 @@
     >
       <a-card :style="{ width: '100%' }" :bordered="false">
         <a-space direction="vertical" size="large" fill>
-          <a-table :data="listDate" :pagination="false" row-key="id" style="margin-top: 30px">
+          <a-table
+            :data="listDate"
+            :pagination="false"
+            row-key="id"
+            style="margin-top: 30px"
+          >
             <template #columns>
               <a-table-column title="id">
                 <template #cell="{ record }">
@@ -123,7 +128,7 @@
   const { t } = useI18n();
   const visible = ref(false);
   const formRef = ref();
-  const total = ref(0)
+  const total = ref(0);
   const form = reactive({
     name: '',
     post: '',
@@ -163,7 +168,7 @@
   const fetchSourceData = async () => {
     setLoading(true);
     try {
-      const res:any = await deptManagementList(secahfrom);
+      const res: any = await deptManagementList(secahfrom);
       listDate.value = res.data;
       total.value = res.count;
     } catch (err) {
@@ -190,10 +195,10 @@
     padding-bottom: 0;
     display: flex;
   }
-  :deep(.arco-space-item .arco-space-vertical){
+  :deep(.arco-space-item .arco-space-vertical) {
     width: 100%;
   }
-  :deep(.arco-space-item .arco-space-vertical .arco-space-item){
+  :deep(.arco-space-item .arco-space-vertical .arco-space-item) {
     width: 100%;
     display: flex;
     justify-content: end;

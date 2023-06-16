@@ -24,7 +24,7 @@ const BAN_LIST = [REDIRECT_ROUTE_NAME];
 const useAppStore = defineStore('tabBar', {
   state: (): TabBarState => ({
     cacheTabList: new Set([DEFAULT_ROUTE_NAME]),
-    tagList: [DEFAULT_ROUTE],
+    tagList: [],
   }),
 
   getters: {
@@ -64,9 +64,9 @@ const useAppStore = defineStore('tabBar', {
         .forEach((x) => this.cacheTabList.add(x));
     },
     resetTabList() {
-      this.tagList = [DEFAULT_ROUTE];
+      this.tagList = [];
       this.cacheTabList.clear();
-      this.cacheTabList.add(DEFAULT_ROUTE_NAME);
+      // this.cacheTabList.add();
     },
   },
 });
