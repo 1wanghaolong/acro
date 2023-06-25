@@ -69,14 +69,16 @@
       background-color: var(--color-bg-2);
       border-bottom: 1px solid var(--color-border);
       .tab-bar-scroll {
-        height: 32px;
+        height: 43px;
         flex: 1;
-        overflow: hidden;
+        overflow-y: hidden;
+        overflow-x: auto;
         .tags-wrap {
-          padding: 4px 0;
-          height: 48px;
+          padding: 8px 0px 0 0;
+          height: 40px;
           white-space: nowrap;
           overflow-x: auto;
+          overflow-y: hidden;
 
           :deep(.arco-tag) {
             display: inline-flex;
@@ -94,7 +96,7 @@
     }
 
     .tag-bar-operation {
-      width: 100px;
+      width: 20px;
       height: 32px;
     }
   }
