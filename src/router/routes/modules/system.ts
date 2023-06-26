@@ -41,7 +41,6 @@ const SYSTEM: AppRouteRecordRaw = {
       component: () => import('@/views/system/role/index.vue'),
       meta: {
         title: '角色管理',
-        icon: 'tree-table',
         locale:"menu.system.Role",
         requiresAuth: true,
         roles: ['*']
@@ -53,7 +52,6 @@ const SYSTEM: AppRouteRecordRaw = {
       component: () => import('@/views/system/dept/index.vue'),
       meta: {
         title: '账户管理',
-        icon: 'tree',
         locale:"menu.system.Dept",
         requiresAuth: true,
         roles: ['*']
@@ -66,7 +64,6 @@ const SYSTEM: AppRouteRecordRaw = {
       meta: {
         title: '操作日志',
         locale:"menu.system.Post",
-        icon: 'post',
         requiresAuth: true,
         roles: ['*']
       },

@@ -42,7 +42,6 @@ const SYSTEMS: AppRouteRecordRaw = {
       meta: {
         title: '入金管理',
         locale:"menu.depositManagement",
-        icon: 'tree-table',
         requiresAuth: true,
         roles: ['*'],
       },
@@ -54,7 +53,6 @@ const SYSTEMS: AppRouteRecordRaw = {
       meta: {
         title: '现场管理',
         locale:"menu.siteManagement",
-        icon: 'tree',
         requiresAuth: true,
         roles: ['*'],
       },
@@ -66,7 +64,6 @@ const SYSTEMS: AppRouteRecordRaw = {
       meta: {
         title: '协议管理',
         locale:"menu.protocolManagement",
-        icon: 'post',
         requiresAuth: true,
         roles: ['*'],
       },
@@ -78,7 +75,6 @@ const SYSTEMS: AppRouteRecordRaw = {
       meta: {
         title: '平台配置',
         locale:"menu.platform",
-        icon: 'post',
         requiresAuth: true,
         roles: ['*'],
       },
@@ -90,7 +86,6 @@ const SYSTEMS: AppRouteRecordRaw = {
       meta: {
         title: '开户评估',
         locale:"menu.Assessment",
-        icon: 'post',
         requiresAuth: true,
         roles: ['*'],
       },

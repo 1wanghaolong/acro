@@ -96,7 +96,7 @@
     }
 
     .tag-bar-operation {
-      width: 20px;
+      width: 45px;
       height: 32px;
     }
   }

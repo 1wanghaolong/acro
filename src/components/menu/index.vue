@@ -95,14 +95,15 @@
         function travel(_route: RouteRecordRaw[], nodes = []) {
           if (_route) {
             _route.forEach((element: any) => {
-              // const icon = element?.meta?.icon
-              //   ? () => h(compile(`<${element?.meta?.icon}/>`))
-              //   : null;
+              const icon = element?.meta?.icon
+                ? () => h(compile(`<${element?.meta?.icon}/>`))
+                : null;
               const node =
                 element?.children &&
                 element?.children.length !== 0 && element?.children.length > 1
                 ? (
                   <a-sub-menu
+                    v-slots={{ icon }}
                     key={element?.name}
                     title={t(element?.meta?.locale)}
                   >
@@ -111,6 +112,7 @@
                 ) : (
                   // v-slots={{ icon }}
                   <a-menu-item
+                    v-slots={{ icon }}
                     key={element?.children[0]?.name || element?.name}
                     onClick={() => goto(element?.children[0]|| element)}
                   >

@@ -8,6 +8,7 @@ const DASHBOARD: AppRouteRecordRaw = {
   meta: {
     title: '首页',
     locale: 'menu.dashboard',
+    icon: 'icon-home',
     requiresAuth: true,
     order: 0,
   },

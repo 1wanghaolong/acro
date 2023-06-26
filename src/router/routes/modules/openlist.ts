@@ -7,7 +7,7 @@ const OPENLIST: AppRouteRecordRaw = {
   component: DEFAULT_LAYOUT,
   meta: {
     title: '开户列表',
-    icon: 'icon-user',
+    icon: 'icon-list',
     locale:"menu.openList",
     requiresAuth: true,
     order: 3,
@@ -38,7 +38,6 @@ const OPENLIST: AppRouteRecordRaw = {
       path: 'meetSite',
       component: () => import('@/views/openlist/meetSite/index.vue'),
       meta: {
-        icon: 'tree-table',
         requiresAuth: true,
         roles: ['*'],
         locale: 'menu.meetSite',
