@@ -9,7 +9,7 @@
       <span
         :class="lang == 'zh-CN' ? 'blueText' : ''"
         @click="setLocal('zh-CN')"
-      >{{$t('views.login.5o6u6ziikrs0')}}</span>
+      >{{$t('login.form.title')}}</span>
       <span>|</span>
       <span
         :class="lang == 'en-US' ? 'blueText' : ''"
@@ -25,7 +25,7 @@
         <!-- <h1 style="text-align: center">{{ 'LINKESOP开户后台' }}</h1> -->
         <logincarousel></logincarousel>
         <div>
-          <p class="fonts">©{{ logoin.terminal_name }}</p>
+          <p class="fonts">©{{ '登录' }}</p>
         </div>
       </div>
       <loginForm></loginForm>

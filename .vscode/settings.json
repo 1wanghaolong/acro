@@ -1,8 +1,7 @@
 {
     "i18n-ally.localesPaths": [
-        "src/locale",
-        "src/components/message-box/locale",
-        "src/views/login/locale",
-        "src/views/dashboard/workplace/locale"
-    ]
+        "src/locales"
+    ],
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.sourceLanguage": "zh-CN"
 }

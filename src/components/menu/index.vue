@@ -100,12 +100,12 @@
                 : null;
               const node =
                 element?.children &&
-                element?.children.length !== 0 && element?.children.length > 1
+                element?.children.length !== 0 && !element.meta.hideInMenu
                 ? (
                   <a-sub-menu
                     v-slots={{ icon }}
                     key={element?.name}
-                    title={t(element?.meta?.locale)}
+                    title={t(element?.meta?.title)}
                   >
                     {travel(element?.children)}
                   </a-sub-menu>
@@ -116,7 +116,7 @@
                     key={element?.children[0]?.name || element?.name}
                     onClick={() => goto(element?.children[0]|| element)}
                   >
-                    { (t(`${element?.meta?.locale}`) || "") }
+                    { (t(`${element?.meta?.title}`) || "") }
                   </a-menu-item>
                 );
               nodes.push(node as never);

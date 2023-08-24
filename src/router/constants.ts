@@ -7,12 +7,12 @@ export const NOT_FOUND = {
   name: 'notFound',
 };
 
-export const REDIRECT_ROUTE_NAME = 'Redirect';
+export const REDIRECT_ROUTE_NAME = ('menu.home');
 
-export const DEFAULT_ROUTE_NAME = 'Workplace';
+export const DEFAULT_ROUTE_NAME = '工作台';
 
 export const DEFAULT_ROUTE = {
-  title: 'menu.dashboard.workplace',
+  title: '1',
   name: DEFAULT_ROUTE_NAME,
   fullPath: '/dashboard/workplace',
 };

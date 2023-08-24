@@ -1,0 +1,81 @@
+{
+  "menu": {
+    "h5Open": "open an account",
+    "h5OpenList": "Account list",
+    "home": "front page",
+    "BankCard": {
+      "CustomeList": "Customer bank card",
+      "DepositList": "deposit bank card",
+      "name": "Bank card management"
+    },
+    "ManagerManagement": {
+      "accountList": "Funding account list",
+      "name": "Account Manager Management"
+    },
+    "StockManagement": {
+      "CustomeList": "stock list",
+      "name": "stock management"
+    },
+    "TransactionManagement": {
+      "CounterpartyList": "Counterparty list",
+      "InquiryRecordList": "Inquiry record list",
+      "OptionPositionList": "List of options positions",
+      "TransactionList": "transaction record list",
+      "name": "transaction management"
+    },
+    "accountManagement": {
+      "PIList": "PI certification application",
+      "WealthaccountList": "Wealth account list",
+      "accountList": "Funding account list",
+      "name": "account management",
+      "riskList": "Risk Assessment Records"
+    },
+    "charge": {
+      "accountListFeepackage": "Fund Account Fee Package",
+      "name": "Charge management"
+    },
+    "configurationmanagement": {
+      "APPpagemanagement": "APP page management",
+      "OptionInquiry": "Option inquiry page settings",
+      "PIauthentication": "PI Authentication Page Setup",
+      "name": "configuration management"
+    },
+    "fundapplication": {
+      "Currencyapplication": "Currency Exchange Application",
+      "accountDepositList": "Fund account deposit application",
+      "accounttCashOutList": "Fund account withdrawal application",
+      "name": "funding application"
+    },
+    "productcontrol": {
+      "OptionProductType": "Option Product Type",
+      "OptionquotationList": "List of Option Quotes",
+      "name": "product management"
+    },
+    "settlementmanagement": {
+      "accountstatement": "account statement",
+      "name": "Clearing and settlement management",
+      "ratemanagement": "Platform exchange rate management",
+      "settlementrecords": "Contract Settlement Record"
+    },
+    "system": {
+      "administrators": "administrator",
+      "extend": "expand",
+      "limitsofauthority": "permissions",
+      "menu": "menu",
+      "name": "System Management",
+      "role": "Role",
+      "systemlog": "system log"
+    },
+    "user": {
+      "ApplicationlogOutList": "Application logout",
+      "accountList": "Fund account login record",
+      "customList": "Customer List",
+      "equipment": "common equipment",
+      "logOutList": "logout record",
+      "name": "User Management"
+    }
+  },
+  "workplace": {
+    "welcome": "Welcome back"
+  }
+}
