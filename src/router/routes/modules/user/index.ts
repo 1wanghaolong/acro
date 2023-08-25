@@ -2,8 +2,8 @@ import { DEFAULT_LAYOUT } from '../../base';
 import { AppRouteRecordRaw } from '../../types';
 
 const KAIHU: AppRouteRecordRaw = {
-  path: '/kaihu',
-  name: 'kaihu',
+  path: '/user',
+  name: 'user',
   component: DEFAULT_LAYOUT,
   meta: {
     title:'menu.user.name',
@@ -15,7 +15,7 @@ const KAIHU: AppRouteRecordRaw = {
     {
       path: 'customList',
       name: 'customList',
-      component: () => import('@/views/Hopen/index.vue'),
+      component: () => import('@/views/user/customList/index.vue'),
       meta: {
         title:"menu.user.customList",
         requiresAuth: true,
@@ -25,7 +25,7 @@ const KAIHU: AppRouteRecordRaw = {
     {
       path: 'equipment',
       name: 'equipment',
-      component: () => import('@/views/Hopen/index.vue'),
+      component: () => import('@/views/user/equipment/index.vue'),
       meta: {
         title:"menu.user.equipment",
         requiresAuth: true,
@@ -35,7 +35,7 @@ const KAIHU: AppRouteRecordRaw = {
     {
       path: 'logOutList',
       name: 'logOutList',
-      component: () => import('@/views/Hopen/index.vue'),
+      component: () => import('@/views/user/logOutList/index.vue'),
       meta: {
         title:"menu.user.logOutList",
         requiresAuth: true,
@@ -45,7 +45,7 @@ const KAIHU: AppRouteRecordRaw = {
     {
       path: 'ApplicationlogOutList',
       name: 'ApplicationlogOutList',
-      component: () => import('@/views/Hopen/index.vue'),
+      component: () => import('@/views/user/ApplicationlogOutList/index.vue'),
       meta: {
         title:"menu.user.ApplicationlogOutList",
         requiresAuth: true,
@@ -55,7 +55,7 @@ const KAIHU: AppRouteRecordRaw = {
     {
       path: 'accountList',
       name: 'accountList',
-      component: () => import('@/views/Hopen/index.vue'),
+      component: () => import('@/views/user/accountList/index.vue'),
       meta: {
         title:"menu.user.accountList",
         requiresAuth: true,
