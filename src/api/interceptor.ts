@@ -30,7 +30,7 @@ axios.interceptors.request.use(
       config.headers.Authorization = `Bearer ${token}`;
     }
     
-    config.headers['Accept-Language'] = localStorage.getItem('arco-locale') == 'en-US' ? 'en' : localStorage.getItem('arco-locale') ?? "zh-CN"
+    config.headers['Accept-Language'] = localStorage.getItem('arco-locale') ?? 'zh-CN'
     return config;
   },
   (error) => {

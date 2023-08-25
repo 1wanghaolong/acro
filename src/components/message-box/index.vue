@@ -6,7 +6,7 @@
           <span> {{ item.title }}{{ formatUnreadLength(item.key) }} </span>
         </template>
         <a-result v-if="!renderList.length" status="404">
-          <template #subtitle> {{ $t('messageBox.noContent') }} </template>
+          <template #subtitle> {{ '暂无数据' }} </template>
         </a-result>
         <List
           :render-list="renderList"
@@ -16,7 +16,7 @@
       </a-tab-pane>
       <template #extra>
         <a-button type="text" @click="emptyList">
-          {{ $t('messageBox.tab.button') }}
+          {{ '清空' }}
         </a-button>
       </template>
     </a-tabs>
@@ -54,15 +54,15 @@
   const tabList: TabItem[] = [
     {
       key: 'message',
-      title: t('messageBox.tab.title.message'),
+      title: '1',
     },
     {
       key: 'notice',
-      title: t('messageBox.tab.title.notice'),
+      title: '2',
     },
     {
       key: 'todo',
-      title: t('messageBox.tab.title.todo'),
+      title: '3',
     },
   ];
   async function fetchSourceData() {

@@ -1,79 +1,104 @@
 {
-    "workplace":{
-        "welcome":"欢迎回来"
+    "workplace": {
+        "welcome": "欢迎回来"
     },
-    "menu":{
-        "home":"工作台",
-        "user":{
-           "name":"用户管理",
-           "customList":"客户列表",
-           "equipment":"常用设备",
-           "logOutList":"注销记录",
-           "ApplicationlogOutList":"应用注销记录",
-           "accountList":"资金账户登录记录"
+    "menu": {
+        "home": "工作台",
+        "user": {
+            "name": "用户管理",
+            "customList": "客户列表",
+            "equipment": "常用设备",
+            "logOutList": "注销记录",
+            "ApplicationlogOutList": "应用注销记录",
+            "accountList": "资金账户登录记录"
         },
-        "ManagerManagement":{
-            "name":"客户经理管理",
-            "accountList":"资金账户列表"
+        "ManagerManagement": {
+            "name": "客户经理管理",
+            "accountList": "资金账户列表"
         },
-        "accountManagement":{
-            "name":"账户管理",
-            "accountList":"资金账户列表",
-            "WealthaccountList":"财富账户列表",
-            "PIList":"PI认证申请",
-            "riskList":"风险测评记录"
+        "accountManagement": {
+            "name": "账户管理",
+            "accountList": "资金账户列表",
+            "WealthaccountList": "财富账户列表",
+            "PIList": "PI认证申请",
+            "riskList": "风险测评记录"
         },
-        "fundapplication":{
-            "name":"资金申请",
-            "accountDepositList":"资金账户入金申请",
-            "accounttCashOutList":"资金账户出金申请",
-            "Currencyapplication":"货币兑换申请"
+        "fundapplication": {
+            "name": "资金申请",
+            "accountDepositList": "资金账户入金申请",
+            "accounttCashOutList": "资金账户出金申请",
+            "Currencyapplication": "货币兑换申请"
         },
-        "productcontrol":{
-            "name":"产品管理",
-            "OptionProductType":"期权产品类型",
-            "OptionquotationList":"期权报价列表"
+        "productcontrol": {
+            "name": "产品管理",
+            "OptionProductType": "期权产品类型",
+            "OptionquotationList": "期权报价列表"
         },
-        "BankCard":{
-            "name":"银行卡管理",
-            "CustomeList":"客户银行卡",
-            "DepositList":"入金银行卡"
+        "BankCard": {
+            "name": "银行卡管理",
+            "CustomeList": "客户银行卡",
+            "DepositList": "入金银行卡"
         },
-        "StockManagement":{
-            "name":"股票管理",
-            "CustomeList":"股票列表"
+        "StockManagement": {
+            "name": "股票管理",
+            "CustomeList": "股票列表"
         },
-        "TransactionManagement":{
-            "name":"交易管理",
-            "InquiryRecordList":"询价记录列表",
-            "TransactionList":"交易记录列表",
-            "CounterpartyList":"交易对手列表",
-            "OptionPositionList":"期权持仓列表"
+        "TransactionManagement": {
+            "name": "交易管理",
+            "InquiryRecordList": "询价记录列表",
+            "TransactionList": "交易记录列表",
+            "CounterpartyList": "交易对手列表",
+            "OptionPositionList": "期权持仓列表"
         },
-        "settlementmanagement":{
-            "name":"清结算管理",
-            "settlementrecords":"合约结算记录",
-            "ratemanagement":"平台汇率管理",
-            "accountstatement":"账户月结单"
+        "settlementmanagement": {
+            "name": "清结算管理",
+            "settlementrecords": "合约结算记录",
+            "ratemanagement": "平台汇率管理",
+            "accountstatement": "账户月结单"
         },
-        "charge":{
-            "name":"收费管理",
-            "accountListFeepackage":"资金账户收费套餐"
+        "charge": {
+            "name": "收费管理",
+            "accountListFeepackage": "资金账户收费套餐"
         },
-        "configurationmanagement":{
-            "name":"配置管理",
-            "APPpagemanagement":"APP页面管理",
-            "PIauthentication":"PI认证页面设置",
-            "OptionInquiry":"期权询价页面设置"
+        "configurationmanagement": {
+            "name": "配置管理",
+            "APPpagemanagement": "APP页面管理",
+            "PIauthentication": "PI认证页面设置",
+            "OptionInquiry": "期权询价页面设置"
         },
-        "system":{
-            "name":"系统管理",
-            "administrators":"管理员",
-            "role":"角色",
-            "limitsofauthority":"权限",
-            "menu":"菜单",
-            "extend":"扩展",
-            "systemlog":"系统日志"
+        "system": {
+            "name": "系统管理",
+            "administrators": "管理员",
+            "role": "角色",
+            "limitsofauthority": "权限",
+            "menu": "菜单",
+            "extend": "扩展",
+            "systemlog": "系统日志"
+        }
+    },
+    "components": {
+        "quick-operation": {
+            "5szowemmti80": "快捷操作",
+            "5szowemmuiw0": "管理"
+        },
+        "login-form": {
+            "5t08af0f30o0": "欢迎登录",
+            "5t08af0f41g0": "账号",
+            "5t08af0f49c0": "密码",
+            "5t08af0f4fo0": "验证码",
+            "5t08af0f4lg0": "记住账号",
+            "5t08af0f4rk0": "登录",
+            "5t08af0f7mg0": "请输入您的账号",
+            "5t08af0f82c0": "请输入您的密码",
+            "5t08af0f8a80": "请输入验证码",
+            "5t08af0f8ho0": "登录成功"
+        }
+    },
+    "login": {
+        "index": {
+            "5t081aikwk00": "繁体",
+            "5t081aikxsg0": "中文",
+            "5t081aikxx80": "登录"
         }
     }
 }

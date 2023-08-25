@@ -33,7 +33,55 @@
         </a-tooltip> -->
       </li>
       <li>
-        <a-tooltip :content="$t('settings.language')">
+        <a-tooltip content="消息通知">
+          <div class="message-box-trigger">
+            <a-badge :count="9" dot>
+              <a-button
+                class="nav-btn"
+                type="outline"
+                :shape="'circle'"
+                @click="setPopoverVisible"
+              >
+                <icon-notification />
+              </a-button>
+            </a-badge>
+          </div>
+        </a-tooltip>
+        <a-popover
+          trigger="click"
+          :arrow-style="{ display: 'none' }"
+          :content-style="{ padding: 0, minWidth: '400px' }"
+          content-class="message-popover"
+        >
+          <div ref="refBtn" class="ref-btn"></div>
+          <template #content>
+            <message-box />
+          </template>
+        </a-popover>
+      </li>
+      <li>
+        <a-tooltip
+          :content="
+            theme === 'light'
+              ? '白色'
+              : '黑色'
+          "
+        >
+          <a-button
+            class="nav-btn"
+            type="outline"
+            :shape="'circle'"
+            @click="handleToggleTheme"
+          >
+            <template #icon>
+              <icon-moon-fill v-if="theme === 'dark'" />
+              <icon-sun-fill v-else />
+            </template>
+          </a-button>
+        </a-tooltip>
+      </li>
+      <li>
+        <a-tooltip content="语言">
           <a-button
             class="nav-btn"
             type="outline"
@@ -64,57 +112,9 @@
       <li>
         <a-tooltip
           :content="
-            theme === 'light'
-              ? $t('settings.navbar.theme.toDark')
-              : $t('settings.navbar.theme.toLight')
-          "
-        >
-          <a-button
-            class="nav-btn"
-            type="outline"
-            :shape="'circle'"
-            @click="handleToggleTheme"
-          >
-            <template #icon>
-              <icon-moon-fill v-if="theme === 'dark'" />
-              <icon-sun-fill v-else />
-            </template>
-          </a-button>
-        </a-tooltip>
-      </li>
-      <li>
-        <!-- <a-tooltip :content="$t('settings.navbar.alerts')">
-          <div class="message-box-trigger">
-            <a-badge :count="9" dot>
-              <a-button
-                class="nav-btn"
-                type="outline"
-                :shape="'circle'"
-                @click="setPopoverVisible"
-              >
-                <icon-notification />
-              </a-button>
-            </a-badge>
-          </div>
-        </a-tooltip> -->
-        <a-popover
-          trigger="click"
-          :arrow-style="{ display: 'none' }"
-          :content-style="{ padding: 0, minWidth: '400px' }"
-          content-class="message-popover"
-        >
-          <div ref="refBtn" class="ref-btn"></div>
-          <template #content>
-            <message-box />
-          </template>
-        </a-popover>
-      </li>
-      <li>
-        <a-tooltip
-          :content="
             isFullscreen
-              ? $t('settings.navbar.screen.toExit')
-              : $t('settings.navbar.screen.toFull')
+              ? '收起'
+              : '全屏'
           "
         >
           <a-button
@@ -130,8 +130,8 @@
           </a-button>
         </a-tooltip>
       </li>
-      <li>
-        <a-tooltip :content="$t('settings.title')">
+      <!-- <li>
+        <a-tooltip content="设置">
           <a-button
             class="nav-btn"
             type="outline"
@@ -143,7 +143,7 @@
             </template>
           </a-button>
         </a-tooltip>
-      </li>
+      </li> -->
       <li>
         <a-dropdown trigger="click">
           <a-avatar
@@ -165,7 +165,7 @@
               <a-space @click="$router.push({ name: 'Info' })">
                 <icon-user />
                 <span>
-                  {{ $t('messageBox.userCenter') }}
+                  {{ "用户中心" }}
                 </span>
               </a-space>
             </a-doption>
@@ -173,7 +173,7 @@
               <a-space @click="$router.push({ name: 'Setting' })">
                 <icon-settings />
                 <span>
-                  {{ $t('messageBox.userSettings') }}
+                  {{ "用户设置" }}
                 </span>
               </a-space>
             </a-doption>
@@ -181,7 +181,7 @@
               <a-space @click="handleLogout">
                 <icon-export />
                 <span>
-                  {{ $t('messageBox.logout') }}
+                  {{ "退出登录" }}
                 </span>
               </a-space>
             </a-doption>

@@ -1,7 +1,7 @@
 <template>
   <a-card
     class="general-card"
-    :title="$t('workplace.recently.visited')"
+    title="最近访问"
     :header-style="{ paddingBottom: '0' }"
     :body-style="{ paddingTop: '26px' }"
   >
@@ -23,15 +23,15 @@
 <script lang="ts" setup>
   const links = [
     {
-      text: 'workplace.contentManagement',
+      text: 'c1',
       icon: 'icon-storage',
     },
     {
-      text: 'workplace.contentStatistical',
+      text: 'c2',
       icon: 'icon-file',
     },
     {
-      text: 'workplace.advanced',
+      text: 'c3',
       icon: 'icon-settings',
     },
   ];

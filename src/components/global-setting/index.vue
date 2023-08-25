@@ -10,15 +10,15 @@
     :width="300"
     unmount-on-close
     :visible="visible"
-    :cancel-text="$t('settings.close')"
-    :ok-text="$t('settings.copySettings')"
+    cancel-text="关闭"
+    ok-text="复制配置"
     @ok="copySettings"
     @cancel="cancel"
   >
-    <template #title> {{ $t('settings.title') }} </template>
-    <Block :options="contentOpts" :title="$t('settings.content')" />
-    <Block :options="othersOpts" :title="$t('settings.otherSettings')" />
-    <a-alert>{{ $t('settings.alertContent') }}</a-alert>
+    <template #title> {{ '页面配置' }} </template>
+    <Block :options="contentOpts" title="内容区域" />
+    <Block :options="othersOpts" title="其他设置" />
+    <a-alert>{{ '配置之后仅是临时生效，要想真正作用于项目，点击下方的 "复制配置" 按钮，将配置替换到 settings.json 中即可。' }}</a-alert>
   </a-drawer>
 </template>
 

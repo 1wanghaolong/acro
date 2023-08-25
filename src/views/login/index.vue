@@ -1,20 +1,20 @@
 <template>
   <div class="container login">
     <div class="langSelect">
-      <!-- <span
-        :class="lang == 'tc-TW' ? 'blueText' : ''"
-        @click="setLocal('tc-TW')"
-      >{{$t('views.login.5o6uqijmp9s0')}}</span>
+      <span
+        :class="lang == 'tc' ? 'blueText' : ''"
+        @click="setLocal('tc')"
+      >{{ $t('login.index.5t081aikwk00') }}</span>
       <span>|</span>
       <span
         :class="lang == 'zh-CN' ? 'blueText' : ''"
         @click="setLocal('zh-CN')"
-      >{{$t('login.form.title')}}</span>
+      >{{ $t('login.index.5t081aikxsg0') }}</span>
       <span>|</span>
       <span
-        :class="lang == 'en-US' ? 'blueText' : ''"
-        @click="setLocal('en-US')"
-      >EN</span> -->
+        :class="lang == 'en' ? 'blueText' : ''"
+        @click="setLocal('en')"
+      >EN</span>
     </div>
     <div class="content">
       <div class="login_left">
@@ -25,7 +25,7 @@
         <!-- <h1 style="text-align: center">{{ 'LINKESOP开户后台' }}</h1> -->
         <logincarousel></logincarousel>
         <div>
-          <p class="fonts">©{{ '登录' }}</p>
+          <p class="fonts">©{{ $t('login.index.5t081aikxx80') }}</p>
         </div>
       </div>
       <loginForm></loginForm>
@@ -44,17 +44,28 @@
   import loginForm from "./components/login-form.vue";
   import logincarousel from "./components/login-carousel.vue";
   import { logologin } from '@/api/user';
+  import { useRoute, useRouter, RouteRecordRaw } from 'vue-router';
   let logoin:any = reactive({
     logo_login: '',
     open_account_icon: '',
     terminal_name: "",
   });
-  const layout:any = ref('vertical')
-  const handleSubmit = () => {};
+  const router = useRouter();
+  const lang:any = ref("")
   const logo = async () =>{
     const { data } = await logologin()
     logoin.logo_login = data?.logo_login
     logoin.terminal_name = data.terminal_name 
+  }
+  const setLocal = (val:any) =>{
+    if (!val) {
+      return
+    }
+    localStorage.setItem('arco-locale',val)
+    router.go(0)
+  }
+  {
+    lang.value = localStorage.getItem('arco-locale') || "zh-CN"
   }
   logo()
 </script>
@@ -87,7 +98,7 @@
     cursor: pointer;
     user-select: none;
     .blueText {
-      color: var(--link-6)
+      color: rgb(var(--arcoblue-6))
     }
     span {
       margin: 0 3px;

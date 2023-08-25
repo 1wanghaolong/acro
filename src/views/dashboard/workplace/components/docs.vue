@@ -1,33 +1,32 @@
 <template>
   <a-card
     class="general-card"
-    :title="$t('workplace.docs')"
+    title="系统资源"
     :header-style="{ paddingBottom: 0 }"
     :body-style="{ paddingTop: 0 }"
-    style="height: 166px"
   >
     <template #extra>
-      <a-link>{{ $t('workplace.viewMore') }}</a-link>
+      <!-- <a-link>{{ '查看更多' }}</a-link> -->
     </template>
-    <a-row>
+    <a-row style="margin-top: 10px;">
       <a-col :span="12">
-        <a-link>
-          {{ $t('workplace.docs.productOverview') }}
+        <a-link style="height: 40px;">
+          {{ 'APP下载地址' }}
         </a-link>
       </a-col>
       <a-col :span="12">
-        <a-link>
-          {{ $t('workplace.docs.userGuide') }}
+        <a-link style="height: 40px;">
+          {{ 'PC下载地址' }}
         </a-link>
       </a-col>
       <a-col :span="12">
-        <a-link>
-          {{ $t('workplace.docs.workflow') }}
+        <a-link style="height: 40px;">
+          {{ 'ISDA协议模板下载' }}
         </a-link>
       </a-col>
       <a-col :span="12">
-        <a-link>
-          {{ $t('workplace.docs.interfaceDocs') }}
+        <a-link style="height: 40px;">
+          {{ '风险问卷模板下载' }}
         </a-link>
       </a-col>
     </a-row>

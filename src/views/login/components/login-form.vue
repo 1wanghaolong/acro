@@ -1,6 +1,6 @@
 <template>
   <div class="login-form-wrapper">
-    <div class="login-form-title">{{ "欢迎登录" }}</div>
+    <div class="login-form-title">{{ $t('components.login-form.5t08af0f30o0') }}</div>
     <a-form
       ref="loginForm"
       :model="userInfo"
@@ -16,7 +16,7 @@
       >
         <a-input
           v-model="userInfo.username"
-          placeholder="账号"
+          :placeholder="$t('components.login-form.5t08af0f41g0')"
         >
           <template #prefix>
             <icon-user />
@@ -31,7 +31,7 @@
       >
         <a-input-password
           v-model="userInfo.password"
-          placeholder="密码"
+          :placeholder="$t('components.login-form.5t08af0f49c0')"
           allow-clear
         >
           <template #prefix>
@@ -49,7 +49,7 @@
         >
           <a-input
             v-model="userInfo.code"
-            placeholder="验证码"
+            :placeholder="$t('components.login-form.5t08af0f4fo0')"
             allow-clear
 
           >
@@ -69,11 +69,11 @@
             :model-value="loginConfig.rememberPassword"
             @change="setRememberPassword as any"
           >
-            {{ "记住账号" }}
+            {{ $t('components.login-form.5t08af0f4lg0') }}
           </a-checkbox>
         </div>
         <a-button type="primary" html-type="submit" long :loading="loading">
-          {{ "登录" }}
+          {{ $t('components.login-form.5t08af0f4rk0') }}
         </a-button>
       </a-space>
     </a-form>
@@ -100,9 +100,9 @@
   // 验证码开关
   const captchaEnabled:any = ref(true);
   const messge = reactive({
-    username:"请输入您的账号",
-    password:"请输入您的密码",
-    code:'请输入验证码'
+    username:t('components.login-form.5t08af0f7mg0'),
+    password:t('components.login-form.5t08af0f82c0'),
+    code:t('components.login-form.5t08af0f8a80')
   })
   const codeUrl = ref('')
   const loginConfig = useStorage('login-config', {
@@ -155,7 +155,7 @@
             ...othersQuery,
           },
         });
-        Message.success(t('登录成功'));
+        Message.success(t(t('components.login-form.5t08af0f8ho0')));
         const { rememberPassword } = loginConfig.value;
         const { username, password } = values;
         // 实际生产环境需要进行加密存储。

@@ -77,5 +77,30 @@
       "logOutList": "註銷記錄",
       "name": "用戶管理"
     }
+  },
+  "components": {
+    "quick-operation": {
+      "5szowemmti80": "快捷操作",
+      "5szowemmuiw0": "管理"
+    },
+    "login-form": {
+      "5t08af0f30o0": "歡迎登錄",
+      "5t08af0f41g0": "賬號",
+      "5t08af0f49c0": "密碼",
+      "5t08af0f4fo0": "驗證碼",
+      "5t08af0f4lg0": "記住賬號",
+      "5t08af0f4rk0": "登錄",
+      "5t08af0f7mg0": "請輸入您的賬號",
+      "5t08af0f82c0": "請輸入您的密碼",
+      "5t08af0f8a80": "請輸入驗證碼",
+      "5t08af0f8ho0": "登錄成功"
+    }
+  },
+  "login": {
+    "index": {
+      "5t081aikwk00": "繁體",
+      "5t081aikxsg0": "中文",
+      "5t081aikxx80": "登錄"
+    }
   }
 }

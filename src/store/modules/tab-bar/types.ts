@@ -1,5 +1,5 @@
 export interface TagProps {
-  title: string;
+  title: any;
   name: string;
   fullPath: string;
   query?: any;

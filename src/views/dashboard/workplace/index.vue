@@ -4,9 +4,22 @@
       <div class="panel">
         <Banner />
         <DataPanel />
-        <ContentChart />
       </div>
       <a-grid :cols="24" :col-gap="16" :row-gap="16" style="margin-top: 16px">
+        <a-grid-item
+          :span="{ xs: 24, sm: 24, md: 24, lg: 24, xl: 24, xxl: 24 }"
+        >
+          <DataPanel2 />
+        </a-grid-item>
+      </a-grid>
+      <a-grid :cols="24" :col-gap="16" :row-gap="16" style="margin-top: 16px">
+        <a-grid-item
+          :span="{ xs: 24, sm: 24, md: 24, lg: 24, xl: 24, xxl: 24 }"
+        >
+          <ContentChart />
+        </a-grid-item>
+      </a-grid>
+      <!-- <a-grid :cols="24" :col-gap="16" :row-gap="16" style="margin-top: 16px">
         <a-grid-item
           :span="{ xs: 24, sm: 24, md: 24, lg: 12, xl: 12, xxl: 12 }"
         >
@@ -17,19 +30,19 @@
         >
           <CategoriesPercent />
         </a-grid-item>
-      </a-grid>
+      </a-grid> -->
     </div>
     <div class="right-side">
       <a-grid :cols="24" :row-gap="16">
         <a-grid-item :span="24">
           <div class="panel moduler-wrap">
             <QuickOperation />
-            <RecentlyVisited />
+            <!-- <RecentlyVisited /> -->
           </div>
         </a-grid-item>
-        <a-grid-item class="panel" :span="24">
+        <!-- <a-grid-item class="panel" :span="24">
           <Carousel />
-        </a-grid-item>
+        </a-grid-item> -->
         <a-grid-item class="panel" :span="24">
           <Announcement />
         </a-grid-item>
@@ -44,6 +57,7 @@
 <script lang="ts" setup>
   import Banner from './components/banner.vue';
   import DataPanel from './components/data-panel.vue';
+  import DataPanel2 from './components/data-panel2.vue';
   import ContentChart from './components/content-chart.vue';
   import PopularContent from './components/popular-content.vue';
   import CategoriesPercent from './components/categories-percent.vue';
@@ -74,7 +88,7 @@
   }
 
   .right-side {
-    width: 280px;
+    width: 350px;
     margin-left: 16px;
   }
 

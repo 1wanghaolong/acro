@@ -1,12 +1,12 @@
 <template>
   <a-card
     class="general-card"
-    :title="$t('workplace.quick.operation')"
+    :title="$t('components.quick-operation.5szowemmti80')"
     :header-style="{ paddingBottom: '0' }"
     :body-style="{ padding: '24px 20px 0 20px' }"
   >
     <template #extra>
-      <a-link>{{ $t('workplace.quickOperation.setup') }}</a-link>
+      <a-link>{{ $t('components.quick-operation.5szowemmuiw0') }}</a-link>
     </template>
     <a-row :gutter="8">
       <a-col v-for="link in links" :key="link.text" :span="8" class="wrapper">
@@ -24,11 +24,14 @@
 
 <script lang="ts" setup>
   const links = [
-    { text: 'workplace.contentManagement', icon: 'icon-file' },
-    { text: 'workplace.contentStatistical', icon: 'icon-storage' },
-    { text: 'workplace.advanced', icon: 'icon-settings' },
-    { text: 'workplace.onlinePromotion', icon: 'icon-mobile' },
-    { text: 'workplace.contentPutIn', icon: 'icon-fire' },
+    { text: '上传上手结单', icon: 'icon-file' },
+    { text: '新增TRS账户', icon: 'icon-storage' },
+    { text: '新增资金账户', icon: 'icon-settings' },
+    { text: '账户申请处理', icon: 'icon-mobile' },
+    { text: '融资申请处理', icon: 'icon-fire' },
+    { text: '单票申请处理', icon: 'icon-fire' },
+    { text: '解约申请处理', icon: 'icon-fire' },
+    { text: '续约申请处理', icon: 'icon-fire' },
   ];
 </script>
 

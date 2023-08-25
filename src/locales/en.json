@@ -77,5 +77,30 @@
   },
   "workplace": {
     "welcome": "Welcome back"
+  },
+  "components": {
+    "quick-operation": {
+      "5szowemmti80": "Shortcuts",
+      "5szowemmuiw0": "manage"
+    },
+    "login-form": {
+      "5t08af0f30o0": "Login please",
+      "5t08af0f41g0": "account",
+      "5t08af0f49c0": "password",
+      "5t08af0f4fo0": "verification code",
+      "5t08af0f4lg0": "remember me",
+      "5t08af0f4rk0": "Log in",
+      "5t08af0f7mg0": "Please enter your account number",
+      "5t08af0f82c0": "please enter your password",
+      "5t08af0f8a80": "please enter verification code",
+      "5t08af0f8ho0": "login successful"
+    }
+  },
+  "login": {
+    "index": {
+      "5t081aikwk00": "traditional",
+      "5t081aikxsg0": "Chinese",
+      "5t081aikxx80": "Log in"
+    }
   }
 }
