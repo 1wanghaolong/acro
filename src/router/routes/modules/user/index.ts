@@ -14,7 +14,7 @@ const KAIHU: AppRouteRecordRaw = {
   children: [
     {
       path: 'customList',
-      name: 'customList',
+      name: 'usercustomList',
       component: () => import('@/views/user/customList/index.vue'),
       meta: {
         title:"menu.user.customList",
@@ -24,7 +24,7 @@ const KAIHU: AppRouteRecordRaw = {
     },
     {
       path: 'equipment',
-      name: 'equipment',
+      name: 'userequipment',
       component: () => import('@/views/user/equipment/index.vue'),
       meta: {
         title:"menu.user.equipment",
@@ -34,7 +34,7 @@ const KAIHU: AppRouteRecordRaw = {
     },
     {
       path: 'logOutList',
-      name: 'logOutList',
+      name: 'userlogOutList',
       component: () => import('@/views/user/logOutList/index.vue'),
       meta: {
         title:"menu.user.logOutList",
@@ -44,7 +44,7 @@ const KAIHU: AppRouteRecordRaw = {
     },
     {
       path: 'ApplicationlogOutList',
-      name: 'ApplicationlogOutList',
+      name: 'userApplicationlogOutList',
       component: () => import('@/views/user/ApplicationlogOutList/index.vue'),
       meta: {
         title:"menu.user.ApplicationlogOutList",
@@ -54,7 +54,7 @@ const KAIHU: AppRouteRecordRaw = {
     },
     {
       path: 'accountList',
-      name: 'accountList',
+      name: 'useraccountList',
       component: () => import('@/views/user/accountList/index.vue'),
       meta: {
         title:"menu.user.accountList",

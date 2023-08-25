@@ -14,8 +14,8 @@ const OPENLIST: AppRouteRecordRaw = {
   children: [
     {
       path: 'CustomeList',
-      name: 'CustomeList',
-      component: () => import('@/views/openlist/openCheck/index.vue'),
+      name: 'openlistCustomeList',
+      component: () => import('@/views/openlist/CustomeList/index.vue'),
       meta: {
         requiresAuth: true,
         roles: ['*'],
@@ -24,8 +24,8 @@ const OPENLIST: AppRouteRecordRaw = {
     },
     {
       name: 'DepositList',
-      path: 'DepositList',
-      component: () => import('@/views/openlist/cashCheck/index.vue'),
+      path: 'openlistDepositList',
+      component: () => import('@/views/openlist/DepositList/index.vue'),
       meta: {
         requiresAuth: true,
         roles: ['*'],

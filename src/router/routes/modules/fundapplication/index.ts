@@ -14,8 +14,8 @@ const USER: AppRouteRecordRaw = {
   children: [
     {
       path: 'accountDepositList',
-      name: 'accountDepositList',
-      component: () => import('@/views/user/info/index.vue'),
+      name: 'fundapplicationAccountDepositList',
+      component: () => import('@/views/fundapplication/accountDepositList/index.vue'),
       meta: {
         title: 'menu.fundapplication.accountDepositList',
         requiresAuth: true,
@@ -24,8 +24,8 @@ const USER: AppRouteRecordRaw = {
     },
     {
       path: 'accounttCashOutList',
-      name: 'accounttCashOutList',
-      component: () => import('@/views/user/info/index.vue'),
+      name: 'fundapplicationAccounttCashOutList',
+      component: () => import('@/views/fundapplication/accounttCashOutList/index.vue'),
       meta: {
         title: 'menu.fundapplication.accounttCashOutList',
         requiresAuth: true,
@@ -34,8 +34,8 @@ const USER: AppRouteRecordRaw = {
     },
     {
       path: 'Currencyapplication',
-      name: 'Currencyapplication',
-      component: () => import('@/views/user/info/index.vue'),
+      name: 'fundapplicationCurrencyapplication',
+      component: () => import('@/views/fundapplication/Currencyapplication/index.vue'),
       meta: {
         title: 'menu.fundapplication.Currencyapplication',
         requiresAuth: true,

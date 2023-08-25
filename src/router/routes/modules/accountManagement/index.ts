@@ -14,8 +14,8 @@ const USER: AppRouteRecordRaw = {
   children: [
     {
       path: 'accountList',
-      name: 'accountList',
-      component: () => import('@/views/user/info/index.vue'),
+      name: 'accountManagementAccountList',
+      component: () => import('@/views/accountManagement/accountList/index.vue'),
       meta: {
         title: 'menu.accountManagement.accountList',
         requiresAuth: true,
@@ -24,8 +24,8 @@ const USER: AppRouteRecordRaw = {
     },
     {
       path: 'WealthaccountList',
-      name: 'WealthaccountList',
-      component: () => import('@/views/user/info/index.vue'),
+      name: 'accountManagementWealthaccountList',
+      component: () => import('@/views/accountManagement/WealthaccountList/index.vue'),
       meta: {
         title: 'menu.accountManagement.WealthaccountList',
         requiresAuth: true,
@@ -34,8 +34,8 @@ const USER: AppRouteRecordRaw = {
     },
     {
       path: 'PIList',
-      name: 'PIList',
-      component: () => import('@/views/user/info/index.vue'),
+      name: 'accountManagementPIList',
+      component: () => import('@/views/accountManagement/PIList/index.vue'),
       meta: {
         title: 'menu.accountManagement.PIList',
         requiresAuth: true,
@@ -44,8 +44,8 @@ const USER: AppRouteRecordRaw = {
     },
     {
       path: 'riskList',
-      name: 'riskList',
-      component: () => import('@/views/user/info/index.vue'),
+      name: 'accountManagementRiskList',
+      component: () => import('@/views/accountManagement/riskList/index.vue'),
       meta: {
         title: 'menu.accountManagement.riskList',
         requiresAuth: true,

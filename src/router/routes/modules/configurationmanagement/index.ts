@@ -14,8 +14,8 @@ const SYSTEM: AppRouteRecordRaw = {
   children: [
     {
       path: 'APPpagemanagement',
-      name: 'APPpagemanagement',
-      component: () => import('@/views/system/user/index.vue'),
+      name: 'configurationmanagementAPPpagemanagement',
+      component: () => import('@/views/configurationmanagement/APPpagemanagement/index.vue'),
       meta: {
         title: 'menu.configurationmanagement.APPpagemanagement',
         requiresAuth: true,
@@ -24,8 +24,8 @@ const SYSTEM: AppRouteRecordRaw = {
     },
     {
       path: 'PIauthentication',
-      name: 'PIauthentication',
-      component: () => import('@/views/system/user/index.vue'),
+      name: 'configurationmanagementPIauthentication',
+      component: () => import('@/views/configurationmanagement/PIauthentication/index.vue'),
       meta: {
         title: 'menu.configurationmanagement.PIauthentication',
         requiresAuth: true,
@@ -34,8 +34,8 @@ const SYSTEM: AppRouteRecordRaw = {
     },
     {
       path: 'OptionInquiry',
-      name: 'OptionInquiry',
-      component: () => import('@/views/system/user/index.vue'),
+      name: 'configurationmanagementOptionInquiry',
+      component: () => import('@/views/configurationmanagement/OptionInquiry/index.vue'),
       meta: {
         title: 'menu.configurationmanagement.OptionInquiry',
         requiresAuth: true,

@@ -14,8 +14,8 @@ const VIP: AppRouteRecordRaw = {
   children: [
     {
       path: 'OptionProductType',
-      name: 'OptionProductType',
-      component: () => import('@/views/vip/index.vue'),
+      name: 'productcontrolOptionProductType',
+      component: () => import('@/views/productcontrol/OptionProductType/index.vue'),
       meta: {
         title: 'menu.productcontrol.OptionProductType',
         requiresAuth: true,
@@ -24,8 +24,8 @@ const VIP: AppRouteRecordRaw = {
     },
     {
       path: 'OptionquotationList',
-      name: 'OptionquotationList',
-      component: () => import('@/views/vip/index.vue'),
+      name: 'productcontrolOptionquotationList',
+      component: () => import('@/views/productcontrol/OptionquotationList/index.vue'),
       meta: {
         title: 'menu.productcontrol.OptionquotationList',
         requiresAuth: true,

@@ -14,8 +14,8 @@ const SYSTEM: AppRouteRecordRaw = {
   children: [
     {
       path: 'accountListFeepackage',
-      name: 'accountListFeepackage',
-      component: () => import('@/views/system/user/index.vue'),
+      name: 'chargeAccountListFeepackage',
+      component: () => import('@/views/charge/accountListFeepackage/index.vue'),
       meta: {
         title: 'menu.charge.accountListFeepackage',
         requiresAuth: true,

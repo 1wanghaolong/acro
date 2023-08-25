@@ -14,8 +14,8 @@ const SYSTEM: AppRouteRecordRaw = {
   children: [
     {
       path: 'settlementrecords',
-      name: 'settlementrecords',
-      component: () => import('@/views/system/user/index.vue'),
+      name: 'settlementmanagementSettlementrecords',
+      component: () => import('@/views/settlementmanagement/settlementrecords/index.vue'),
       meta: {
         title: 'menu.settlementmanagement.settlementrecords',
         requiresAuth: true,
@@ -24,8 +24,8 @@ const SYSTEM: AppRouteRecordRaw = {
     },
     {
       path: 'ratemanagement',
-      name: 'ratemanagement',
-      component: () => import('@/views/system/user/index.vue'),
+      name: 'settlementmanagementRatemanagement',
+      component: () => import('@/views/settlementmanagement/ratemanagement/index.vue'),
       meta: {
         title: 'menu.settlementmanagement.ratemanagement',
         requiresAuth: true,
@@ -34,8 +34,8 @@ const SYSTEM: AppRouteRecordRaw = {
     },
     {
       path: 'accountstatement',
-      name: 'accountstatement',
-      component: () => import('@/views/system/user/index.vue'),
+      name: 'settlementmanagementAccountstatement',
+      component: () => import('@/views/settlementmanagement/accountstatement/index.vue'),
       meta: {
         title: 'menu.settlementmanagement.accountstatement',
         requiresAuth: true,

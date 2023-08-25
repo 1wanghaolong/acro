@@ -14,8 +14,8 @@ const SYSTEMS: AppRouteRecordRaw = {
   children: [
     {
       path: 'InquiryRecordList',
-      name: 'InquiryRecordList',
-      component: () => import('@/views/systems/openPreparation/index.vue'),
+      name: 'TransactionManagementInquiryRecordList',
+      component: () => import('@/views/TransactionManagement/InquiryRecordList/index.vue'),
       meta: {
         title: 'menu.TransactionManagement.InquiryRecordList',
         requiresAuth: true,
@@ -24,8 +24,8 @@ const SYSTEMS: AppRouteRecordRaw = {
     },
     {
       name: 'TransactionList',
-      path: 'TransactionList',
-      component: () => import('@/views/systems/videoVerification/index.vue'),
+      path: 'TransactionManagementTransactionList',
+      component: () => import('@/views/TransactionManagement/TransactionList/index.vue'),
       meta: {
         title: 'menu.TransactionManagement.TransactionList',
         requiresAuth: true,
@@ -34,8 +34,8 @@ const SYSTEMS: AppRouteRecordRaw = {
     },
     {
       name: 'CounterpartyList',
-      path: 'CounterpartyList',
-      component: () => import('@/views/systems/videoVerification/index.vue'),
+      path: 'TransactionManagementCounterpartyList',
+      component: () => import('@/views/TransactionManagement/CounterpartyList/index.vue'),
       meta: {
         title: 'menu.TransactionManagement.CounterpartyList',
         requiresAuth: true,
@@ -44,8 +44,8 @@ const SYSTEMS: AppRouteRecordRaw = {
     },
     {
       name: 'OptionPositionList',
-      path: 'OptionPositionList',
-      component: () => import('@/views/systems/videoVerification/index.vue'),
+      path: 'TransactionManagementOptionPositionList',
+      component: () => import('@/views/TransactionManagement/OptionPositionList/index.vue'),
       meta: {
         title: 'menu.TransactionManagement.OptionPositionList',
         requiresAuth: true,

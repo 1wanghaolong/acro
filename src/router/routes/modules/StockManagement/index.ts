@@ -2,8 +2,8 @@ import { DEFAULT_LAYOUT } from '../../base';
 import { AppRouteRecordRaw } from '../../types';
 
 const SMS: AppRouteRecordRaw = {
-  path: '/SMS',
-  name: 'SMS',
+  path: '/StockManagement',
+  name: 'StockManagement',
   component: DEFAULT_LAYOUT,
   meta: {
     title: 'menu.StockManagement.name',
@@ -14,8 +14,8 @@ const SMS: AppRouteRecordRaw = {
   children: [
     {
       path: 'CustomeList',
-      name: 'CustomeList',
-      component: () => import('@/views/sms/index.vue'),
+      name: 'StockManagementCustomeList',
+      component: () => import('@/views/StockManagement/CustomeList/index.vue'),
       meta: {
         title: 'menu.StockManagement.CustomeList',
         requiresAuth: true,

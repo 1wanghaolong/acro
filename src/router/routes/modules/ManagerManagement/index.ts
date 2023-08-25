@@ -14,8 +14,8 @@ const SYSTEM: AppRouteRecordRaw = {
   children: [
     {
       path: 'accountList',
-      name: 'accountList',
-      component: () => import('@/views/system/user/index.vue'),
+      name: 'ManagerManagementaccountList',
+      component: () => import('@/views/ManagerManagement/accountList/index.vue'),
       meta: {
         title: 'menu.ManagerManagement.accountList',
         requiresAuth: true,

@@ -13,8 +13,8 @@ const SYSTEM: AppRouteRecordRaw = {
   },
   children: [
     {
-      path: 'administrators',
-      name: 'administrators',
+      path: 'user',
+      name: 'user',
       component: () => import('@/views/system/user/index.vue'),
       meta: {
         title: 'menu.system.administrators',
@@ -33,9 +33,9 @@ const SYSTEM: AppRouteRecordRaw = {
       },
     },
     {
-      path: 'limitsofauthority',
-      name: 'limitsofauthority',
-      component: () => import('@/views/system/user/index.vue'),
+      path: 'post',
+      name: 'post',
+      component: () => import('@/views/system/post/index.vue'),
       meta: {
         title: 'menu.system.limitsofauthority',
         requiresAuth: true,
@@ -53,9 +53,9 @@ const SYSTEM: AppRouteRecordRaw = {
       },
     },
     {
-      path: 'extend',
-      name: 'extend',
-      component: () => import('@/views/system/user/index.vue'),
+      path: 'dept',
+      name: 'dept',
+      component: () => import('@/views/system/dept/index.vue'),
       meta: {
         title: 'menu.system.extend',
         requiresAuth: true,
@@ -65,7 +65,7 @@ const SYSTEM: AppRouteRecordRaw = {
     {
       path: 'systemlog',
       name: 'systemlog',
-      component: () => import('@/views/system/user/index.vue'),
+      component: () => import('@/views/system/systemlog/index.vue'),
       meta: {
         title: 'menu.system.systemlog',
         requiresAuth: true,
