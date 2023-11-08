@@ -1,22 +1,18 @@
 import { DirectiveBinding } from 'vue';
-import { useUserStore } from '@/store';
 
 function checkPermission(el: HTMLElement, binding: DirectiveBinding) {
   const { value } = binding;
-  const userStore = useUserStore();
-  const { roles } = userStore;
-
+  const local = useLocal();
   if (Array.isArray(value)) {
-    if (value.length > 0) {
-      const permissionValues = value;
-
-      const hasPermission = permissionValues.includes(roles);
-      if (!hasPermission && el.parentNode) {
-        el.parentNode.removeChild(el);
+      let isShow = false
+      value?.forEach((item:string) => {
+        local.permissions.includes(item) && (isShow = true)
+      })
+      if (!isShow && el.parentNode) {
+          el.parentNode.removeChild(el);
       }
-    }
   } else {
-    throw new Error(`need roles! Like v-permission="['root','user']"`);
+    throw new Error(`请使用数组，例如：v-permission="['xxx','xxx']"`);
   }
 }
 

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-option-admin
+  namespace: __PROD_NAMESPACE__
+  annotations:
+    ref: __CI_ENVIRONMENT_SLUG__    
+spec:
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: deployment-__PROD_NAMESPACE__-static-option-admin
+  template:
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: deployment-__PROD_NAMESPACE__-static-option-admin
+    spec:
+      imagePullSecrets:
+      - name: aliyun-hk
+      containers:
+      - image: __IMAGE__:__TAG__
+        name: static-option-admin
+        ports:
+        - containerPort: 80
+          name: option-admin
+          protocol: TCP

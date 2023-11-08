@@ -1,28 +1,37 @@
-import { createApp } from 'vue';
-import ArcoVue from '@arco-design/web-vue';
-import ArcoVueIcon from '@arco-design/web-vue/es/icon';
-import globalComponents from '@/components';
+import { createApp } from 'vue'
+import App from './App.vue'
 import router from './router';
-import store from './store';
 import i18n from './locales';
+import pinia from './store';
 import directive from './directive';
-import './mock';
-import App from './App.vue';
-// Styles are imported via arco-plugin. See config/plugin/arcoStyleImport.ts in the directory for details
-// 样式通过 arco-plugin 插件导入。详见目录文件 config/plugin/arcoStyleImport.ts
-// https://arco.design/docs/designlab/use-theme-package
-import '@/assets/style/global.less';
-import '@/api/api';
+import {useNumberFormat,dataFormat} from '@/hooks/permission'
+import '@arco-design/web-vue/es/message/style/css.js'
+import '@arco-design/web-vue/es/notification/style/css.js'
+import './assets/css/style.less'
+import 'https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_28391_19.6ad7c1fc8fc34d5d5b907c40dcf6c655.js'
+const app = createApp(App)
+// 定义 $permission 方法
+app.config.globalProperties.$permission = usePermission
+app.config.globalProperties.$numberFormat = useNumberFormat
+app.config.globalProperties.$dataFormat = dataFormat
 
-const app = createApp(App);
-
-app.use(ArcoVue, {});
-app.use(ArcoVueIcon);
-
-app.use(router);
-app.use(store);
-app.use(i18n);
-app.use(globalComponents);
+app.use(pinia)
+app.use(i18n)
+app.use(router)
 app.use(directive);
-
-app.mount('#app');
+app.mount('#app')
+declare module '@vue/runtime-core' {
+    interface ComponentCustomProperties {
+        $permission: any;
+    }
+}
+declare module '@vue/runtime-core' {
+    interface ComponentCustomProperties {
+        $numberFormat: any
+    }
+}  
+declare module '@vue/runtime-core' {
+    interface ComponentCustomProperties {
+        $dataFormat: any
+    }
+}  

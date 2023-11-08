@@ -10,8 +10,7 @@ import {
   GraphicComponent,
 } from 'echarts/components';
 import Chart from './chart/index.vue';
-
-// Manually introduce ECharts modules to reduce packing size
+import Breadcrumb from './breadcrumb/index.vue';
 
 use([
   CanvasRenderer,
@@ -29,5 +28,6 @@ use([
 export default {
   install(Vue: App) {
     Vue.component('Chart', Chart);
+    Vue.component('Breadcrumb', Breadcrumb)
   },
 };

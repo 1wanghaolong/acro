@@ -1,21 +1,19 @@
 import axios from 'axios'
 import type { types } from '@/types/api'
-console.log('import.meta.env',import.meta);
-
 const service = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_API,
   headers: {
     'Cache-Control': 'no-cache',
     'Pragma': 'no-cache',
-    // 'Admin-Scene':import.meta.env.VITE_ADMIN_SCENE
+    'Admin-Scene':import.meta.env.VITE_ADMIN_SCENE
   },
   timeout: 50000, // 请求超时时间
 })
 service.interceptors.request.use(
   (config: any) => {
     // const local = JSON.parse(String(localStorage.getItem('local')))
-    // const local = useLocal()
-    // const temp = useTemp()
+    const local = useLocal()
+    const temp = useTemp()
     // @ts-ignore
     config.headers['Authorization'] = `Bearer ${temp?.token}`;//每次请求实时获取token
     // @ts-ignore

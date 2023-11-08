@@ -1,128 +1,79 @@
 <template>
-  <a-spin style="display: block" :loading="loading">
-    <a-tabs v-model:activeKey="messageType" type="rounded" destroy-on-hide>
-      <a-tab-pane v-for="item in tabList" :key="item.key">
-        <template #title>
-          <span> {{ item.title }}{{ formatUnreadLength(item.key) }} </span>
-        </template>
-        <a-result v-if="!renderList.length" status="404">
-          <template #subtitle> {{ '暂无数据' }} </template>
-        </a-result>
-        <List
-          :render-list="renderList"
-          :unread-count="unreadCount"
-          @item-click="handleItemClick"
-        />
-      </a-tab-pane>
+  <a-spin style="display: block">
+    <a-card :loading="loading" :bordered="false" style="width:320px;display:flex;flex-direction: column;">
       <template #extra>
-        <a-button type="text" @click="emptyList">
-          {{ '清空' }}
-        </a-button>
+        <a-link @click="MessageReadAll" v-if="$permission(['adminMessageReadAll'])">{{'全部已读'}}</a-link>
       </template>
-    </a-tabs>
+      <template #title>
+        <span>{{ '消息通知' }}</span>
+      </template>
+      <div style="overflow-y: auto;height:200px" v-if="list.length && $permission(['statisticsAccountInfo'])">
+        <div v-for="item in list">
+          <div style="display:flex;justify-content:space-between">
+            <span style="width:150px">{{ item.title }}</span>
+            <span>{{ dayjs(item.create_time * 1000).format('YYYY-MM-DD HH:mm:ss') }}</span>
+          </div>
+          <div style="margin-top:5px">
+            {{ item.content }}
+          </div>
+          <a-divider />
+        </div>
+      </div>
+      <div style="overflow-y: auto;height:200px;display:flex;align-items:center;justify-content:center" v-else>
+        <div style="font-size:17px">
+          {{ !$permission(['statisticsAccountInfo'])?'暂无权限':'暂无数据' }}
+        </div>
+      </div>
+      <a-divider v-if="$permission(['trsNoticeMessagesList'])" />
+      <div style="display:flex;justify-content:center;align-items:center" v-if="$permission(['trsNoticeMessagesList'])">
+        <a-link @click="router.push({name:'trsNoticeMessages'}),emit('close')">查看全部消息</a-link>
+      </div>
+    </a-card>
   </a-spin>
 </template>
 
 <script lang="ts" setup>
-  import { ref, reactive, toRefs, computed } from 'vue';
-  import { useI18n } from 'vue-i18n';
-  import {
-    queryMessageList,
-    setMessageStatus,
-    MessageRecord,
-    MessageListType,
-  } from '@/api/api';
-  import List from './list.vue';
-
-  interface TabItem {
-    key: string;
-    title: string;
-    avatar?: string;
+import dayjs from 'dayjs'
+const router = useRouter()
+const loading = ref(false)
+const emit = defineEmits(['close']);
+const dataList = ref({
+  type:"",
+  create_time:[],
+  page: 1,
+  per_page: 20
+})
+const list:any = ref([]);
+const getData = async () => {  //消息列表
+  loading.value = true
+  const { code, data } = await apiTrs.adminMessageList({...useFilter(dataList.value)})
+  loading.value = false
+  if (code != 1) return;
+  if (data.list.length) {
+    list.value = data.list
   }
-  const { loading, setLoading } = useLoading(true);
-  const messageType = ref('message');
-  const { t } = useI18n();
-  const messageData = reactive<{
-    renderList: MessageRecord[];
-    messageList: MessageRecord[];
-  }>({
-    renderList: [],
-    messageList: [],
-  });
-  toRefs(messageData);
-  const tabList: TabItem[] = [
-    {
-      key: 'message',
-      title: '1',
-    },
-    {
-      key: 'notice',
-      title: '2',
-    },
-    {
-      key: 'todo',
-      title: '3',
-    },
-  ];
-  async function fetchSourceData() {
-    setLoading(true);
-    try {
-      const { data } = await queryMessageList();
-      messageData.messageList = data;
-    } catch (err) {
-      // you can report use errorHandler or other
-    } finally {
-      setLoading(false);
-    }
-  }
-  async function readMessage(data: MessageListType) {
-    const ids = data.map((item) => item.id);
-    await setMessageStatus({ ids });
-    fetchSourceData();
-  }
-  const renderList = computed(() => {
-    return messageData.messageList.filter(
-      (item) => messageType.value === item.type
-    );
-  });
-  const unreadCount = computed(() => {
-    return renderList.value.filter((item) => !item.status).length;
-  });
-  const getUnreadList = (type: string) => {
-    const list = messageData.messageList.filter(
-      (item) => item.type === type && !item.status
-    );
-    return list;
-  };
-  const formatUnreadLength = (type: string) => {
-    const list = getUnreadList(type);
-    return list.length ? `(${list.length})` : ``;
-  };
-  const handleItemClick = (items: MessageListType) => {
-    if (renderList.value.length) readMessage([...items]);
-  };
-  const emptyList = () => {
-    messageData.messageList = [];
-  };
-  fetchSourceData();
+}
+const MessageReadAll = async () => {  //消息列表
+  loading.value = true
+  const { code } = await apiTrs.adminMessageReadAll()
+  loading.value = false
+  if (code != 1) return;
+  Message.success('已全部已读')
+  emit('close')
+}
+{
+  usePermission(['statisticsAccountInfo']) && getData()
+}
 </script>
 
 <style scoped lang="less">
-  :deep(.arco-popover-popup-content) {
-    padding: 0;
-  }
-
-  :deep(.arco-list-item-meta) {
-    align-items: flex-start;
-  }
-  :deep(.arco-tabs-nav) {
-    padding: 14px 0 12px 16px;
-    border-bottom: 1px solid var(--color-neutral-3);
-  }
-  :deep(.arco-tabs-content) {
-    padding-top: 0;
-    .arco-result-subtitle {
-      color: rgb(var(--gray-6));
-    }
-  }
+:deep(.arco-divider-horizontal){
+  margin: 10px 0;
+}
+:deep(.arco-card-size-medium .arco-card-body){
+  padding: 16px 0px 0px;
+}
+:deep(.arco-card-size-medium .arco-card-header){
+  padding: 16px 0px 10px;
+}
 </style>

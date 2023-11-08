@@ -1,9 +1,9 @@
-import { createPinia } from 'pinia';
-import useAppStore from './modules/app';
-import useUserStore from './modules/user';
-import useTabBarStore from './modules/tab-bar';
-
-const pinia = createPinia();
-
-export { useAppStore, useUserStore, useTabBarStore };
-export default pinia;
+import persist from 'pinia-plugin-persistedstate' //导入持久化插件
+// 创建pinia实例
+const pinia = createPinia()
+// 使用插件
+pinia.use(persist)
+export * from './temp'
+export * from './local'
+export default pinia
+ 

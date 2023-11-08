@@ -1,7 +1,8 @@
 {
     "i18n-ally.localesPaths": [
-        "src/locales"
+        "src/locales",
+        "src/pages/trs/notice/messages"
     ],
-    "i18n-ally.keystyle": "nested",
-    "i18n-ally.sourceLanguage": "zh-CN"
+    "i18n-ally.sourceLanguage": "zh-CN",
+    "i18n-ally.keystyle": "nested"
 }
