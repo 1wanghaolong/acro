@@ -120,7 +120,7 @@
 
 <script lang="ts" setup>
   import { reactive, ref, h } from 'vue';
-  import { deptManagementList } from '@/api/system';
+  import { deptManagementList } from '@/api/api';
   import useLoading from '@/hooks/loading';
   import { useI18n } from 'vue-i18n';
   import { getDate } from '@/utils/fifter';

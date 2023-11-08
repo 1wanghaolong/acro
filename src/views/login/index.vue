@@ -43,7 +43,7 @@
   import { ref,reactive } from 'vue';
   import loginForm from "./components/login-form.vue";
   import logincarousel from "./components/login-carousel.vue";
-  import { logologin } from '@/api/user';
+  import { logologin } from '@/api/api';
   import { useRoute, useRouter, RouteRecordRaw } from 'vue-router';
   let logoin:any = reactive({
     logo_login: '',

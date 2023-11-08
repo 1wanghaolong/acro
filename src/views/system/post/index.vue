@@ -108,7 +108,7 @@
 
 <script lang="ts" setup>
   import { reactive, ref, h } from 'vue';
-  import { postManagementList } from '@/api/system';
+  import { postManagementList } from '@/api/api';
   import useLoading from '@/hooks/loading';
   import { useI18n } from 'vue-i18n';
   import { getDate } from '@/utils/fifter';

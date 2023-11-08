@@ -31,8 +31,7 @@
     setMessageStatus,
     MessageRecord,
     MessageListType,
-  } from '@/api/message';
-  import useLoading from '@/hooks/loading';
+  } from '@/api/api';
   import List from './list.vue';
 
   interface TabItem {

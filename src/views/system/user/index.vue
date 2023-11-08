@@ -93,7 +93,7 @@
 
 <script lang="ts" setup>
   import { reactive, ref } from 'vue';
-  import { queryMessageList } from '@/api/system';
+  import { queryMessageList } from '@/api/api';
   import useLoading from '@/hooks/loading';
   import { useI18n } from 'vue-i18n';
   const { loading, setLoading } = useLoading(true);

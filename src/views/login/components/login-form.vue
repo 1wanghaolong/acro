@@ -89,8 +89,8 @@
   import { useStorage } from '@vueuse/core';
   import { useUserStore } from '@/store';
   import useLoading from '@/hooks/loading';
-  import type { LoginData } from '@/api/user';
-  import { getCodeImg } from '@/api/user';
+  import type { LoginData } from '@/api/api';
+  import { getCodeImg } from '@/api/api';
 
   const router = useRouter();
   const { t } = useI18n();
