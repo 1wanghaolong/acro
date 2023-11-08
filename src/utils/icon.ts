@@ -1,0 +1,21 @@
+export const icons = [
+    "dashboard-one",
+    "peoples-two",
+    "user-business",
+    "wallet",
+    "funds",
+    "bank-card-one",
+    "chart-stock",
+    "transaction-order",
+    "table-report",
+    "setting-two",
+    "setting-config",
+    "database-config",
+    "exchange-four-afh9994o",
+    "exchange",
+    "protect",
+    "network-tree",
+    "remind",
+    "financing",
+    "qiquanchanpin"
+]
